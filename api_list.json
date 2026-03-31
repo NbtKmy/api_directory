@@ -1,0 +1,1088 @@
+[
+  {
+    "name": "ArXiv",
+    "url": "https://info.arxiv.org/help/api/index.html",
+    "endpoint": "https://export.arxiv.org/api/query",
+    "description": {
+      "en": "Extensive open-access repository for preprints (>2 million) in physics, mathematics, computer science, biology, finance, and statistics. A good complement to OpenAlex and PubMed Central.",
+      "de": "Umfangreiches Open-Access-Repository für Preprints (>2 Millionen) aus Physik, Mathematik, Informatik, Biologie, Finanzwissenschaft und Statistik. Gute Ergänzung zu OpenAlex und PubMed Central."
+    },
+    "license": {
+      "en": "✅ Freely accessible",
+      "de": "✅ Frei zugänglich"
+    },
+    "contentFormats": {
+      "en": "REST API (Atom 1.0 XML) | Full-text links (PDF) with structured metadata: Title, Author, Abstract, Subject category, ArXiv ID",
+      "de": "REST API (Atom 1.0 XML) | Volltext-Links (PDF) mit strukturierten Metadaten: Titel, Autor, Abstract, Fachkategorie, ArXiv-ID"
+    },
+    "limitations": {
+      "en": "No hard rate limit. Recommended: ~3 sec between requests | Max 30,000 results per query | Results returned in slices up to 2,000 | Queries with >1,000 results should be refined | No PDF bulk download via API (only individual links)",
+      "de": "Kein festes Anfragenlimit. Empfehlung: ~3 Sek. Pause zwischen Anfragen | Max. 30.000 Ergebnisse pro Abfrage | Ergebnisse in Scheiben bis zu 2.000 | Abfragen mit >1.000 Ergebnissen sollten verfeinert werden | Kein PDF-Massendownload über die API (nur Einzellinks)"
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "REST API User Manual",
+          "de": "REST API Benutzerhandbuch"
+        },
+        "url": "https://info.arxiv.org/help/api/user-manual.html"
+      },
+      {
+        "label": {
+          "en": "ArXiv API Quick Reference",
+          "de": "ArXiv API Kurzreferenz"
+        },
+        "url": "https://info.arxiv.org/help/api/basics.html"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "No registration or API key required. Use responsibly per Terms of Use.",
+      "de": "Keine Registrierung oder API-Schlüssel erforderlich. Verantwortungsvoller Umgang gemäß Nutzungsbedingungen."
+    },
+    "lastSighted": "",
+    "lastModified": "2026-03-31"
+  },
+  {
+    "name": "CrossRef API",
+    "url": "https://api.crossref.org/swagger-ui/index.html",
+    "endpoint": "https://api.crossref.org",
+    "description": {
+      "en": "Publisher-supplied metadata including full-text URLs where available. Multiple APIs for querying, filtering, sorting, real-time updates, TDM license screening, and full-text links.",
+      "de": "Von Verlagen bereitgestellte Metadaten inkl. Volltext-URLs (sofern verfügbar). Mehrere APIs für Abfragen, Filterung, Sortierung, Echtzeit-Updates, TDM-Lizenzprüfung und Volltext-Links."
+    },
+    "license": {
+      "en": "✅ Freely accessible | ⚠️ License required for Metadata Plus",
+      "de": "✅ Frei zugänglich | ⚠️ Lizenz für Metadata Plus erforderlich"
+    },
+    "contentFormats": {
+      "en": "REST API (JSON) for selective queries | XML API (DOI and metadata queries) | Event Data API (events referencing DOIs in patents, social media, Wikipedia) | Metadata dumps (complete corpus as annual JSONL packages)",
+      "de": "REST API (JSON) für gezielte Abfragen | XML API (DOI- und Metadatenabfragen) | Event Data API (Ereignisse mit DOI-Bezug aus Patenten, sozialen Medien, Wikipedia) | Metadaten-Dumps (vollständiges Korpus als jährliche JSONL-Pakete)"
+    },
+    "limitations": {
+      "en": "No explicit rate limits; responsible use expected. Not intended for bulk downloading.",
+      "de": "Keine expliziten Anfragenlimits; verantwortungsvoller Umgang wird erwartet. Nicht für Massendownloads vorgesehen."
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "REST API (Swagger)",
+          "de": "REST API (Swagger)"
+        },
+        "url": "https://api.crossref.org/swagger-ui/index.html"
+      },
+      {
+        "label": {
+          "en": "GitHub Quickstart",
+          "de": "GitHub Quickstart"
+        },
+        "url": "https://github.com/CrossRef/rest-api-doc"
+      },
+      {
+        "label": {
+          "en": "XML API",
+          "de": "XML API"
+        },
+        "url": "https://www.crossref.org/documentation/retrieve-metadata/xml-based-queries/"
+      },
+      {
+        "label": {
+          "en": "Metadata Dumps",
+          "de": "Metadaten-Dumps"
+        },
+        "url": "https://www.crossref.org/documentation/retrieve-metadata/bulk-metadata-download/"
+      },
+      {
+        "label": {
+          "en": "Event Data API",
+          "de": "Event Data API"
+        },
+        "url": "https://www.eventdata.crossref.org/guide/"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "No registration or API key required.",
+      "de": "Keine Registrierung oder API-Schlüssel erforderlich."
+    },
+    "lastSighted": "",
+    "lastModified": "2026-03-31"
+  },
+  {
+    "name": "Directory of Open Access Books",
+    "url": "https://www.doabooks.org/en/article/api-search-doab",
+    "endpoint": "https://directory.doabooks.org/rest/",
+    "description": {
+      "en": ">100,000 peer-reviewed OA books from more than 600 publishers. Full texts hosted in OA publisher repositories or on OAPEN.",
+      "de": ">100.000 begutachtete OA-Bücher von mehr als 600 Verlagen. Volltexte werden in OA-Verlagsrepositorien oder auf OAPEN gehostet."
+    },
+    "license": {
+      "en": "✅ Freely accessible | Metadata and OA full texts openly reusable",
+      "de": "✅ Frei zugänglich | Metadaten und OA-Volltexte frei nachnutzbar"
+    },
+    "contentFormats": {
+      "en": "REST API (JSON) for querying metadata and associated files (PDF, EPUB, and other formats) | Search fields follow Dublin Core conventions (e.g., dc.title, dc.creator, handle)",
+      "de": "REST API (JSON) zur Abfrage von Metadaten und zugehörigen Dateien (PDF, EPUB und weitere Formate) | Suchfelder nach Dublin-Core-Konventionen (z.B. dc.title, dc.creator, handle)"
+    },
+    "limitations": {
+      "en": "No explicit rate limits; responsible use expected.",
+      "de": "Keine expliziten Anfragenlimits; verantwortungsvoller Umgang wird erwartet."
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "REST API",
+          "de": "REST API"
+        },
+        "url": "https://www.doabooks.org/en/article/api-search-doab"
+      },
+      {
+        "label": {
+          "en": "API Documentation",
+          "de": "API-Dokumentation"
+        },
+        "url": "https://directory.doabooks.org/rest/"
+      },
+      {
+        "label": {
+          "en": "OAPEN",
+          "de": "OAPEN"
+        },
+        "url": "https://oapen.org/"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "No registration or API key required.",
+      "de": "Keine Registrierung oder API-Schlüssel erforderlich."
+    },
+    "lastSighted": "",
+    "lastModified": "2026-03-31"
+  },
+  {
+    "name": "Directory of Open Access Journals",
+    "url": "https://doaj.org/api/v4/docs",
+    "endpoint": "https://doaj.org/api/v4/",
+    "description": {
+      "en": ">20,000 quality-assured Open Access journals; >10 million articles with links to full texts.",
+      "de": ">20.000 qualitätsgeprüfte Open-Access-Zeitschriften; >10 Millionen Artikel mit Links zu Volltexten."
+    },
+    "license": {
+      "en": "✅ Freely accessible | Metadata openly reusable | No full texts included",
+      "de": "✅ Frei zugänglich | Metadaten frei nachnutzbar | Keine Volltexte enthalten"
+    },
+    "contentFormats": {
+      "en": "REST API (JSON) for metadata GET requests | Article and journal metadata (title, ISSN/EISSN, license, full-text URL, abstract, keywords, publisher) | Elasticsearch-based query syntax (e.g., bibjson.journal.title) | Use cases: OA corpus creation, TDM license screening, OA landscape analysis",
+      "de": "REST API (JSON) für Metadaten-GET-Anfragen | Artikel- und Zeitschriftenmetadaten (Titel, ISSN/EISSN, Lizenz, Volltext-URL, Abstract, Schlagwörter, Verlag) | Elasticsearch-basierte Abfragesyntax (z.B. bibjson.journal.title) | Anwendungsfälle: OA-Korpuserstellung, TDM-Lizenzprüfung, OA-Landschaftsanalyse"
+    },
+    "limitations": {
+      "en": "No explicit rate limits; responsible use expected.",
+      "de": "Keine expliziten Anfragenlimits; verantwortungsvoller Umgang wird erwartet."
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "DOAJ API Live Documentation",
+          "de": "DOAJ API Live-Dokumentation"
+        },
+        "url": "https://doaj.org/api/v4/docs"
+      },
+      {
+        "label": {
+          "en": "DOAJ Blog (API News)",
+          "de": "DOAJ Blog (API-Neuigkeiten)"
+        },
+        "url": "https://blog.doaj.org/"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "No registration or API key required. API keys issued only to publishers who deposit metadata with DOAJ.",
+      "de": "Keine Registrierung oder API-Schlüssel erforderlich. API-Schlüssel werden nur an Verlage vergeben, die Metadaten bei DOAJ einreichen."
+    },
+    "lastSighted": "",
+    "lastModified": "2026-03-31"
+  },
+  {
+    "name": "Europe PMC",
+    "url": "https://europepmc.org/RestfulWebService",
+    "endpoint": "https://www.ebi.ac.uk/europepmc/webservices/rest/",
+    "description": {
+      "en": ">33 million articles, preprints, and abstracts in the biomedical/life sciences domain, including 10.2 million full texts and >6.5 million OA articles. Sources: PubMed/Medline, Agricola, Chinese Biological Abstracts, European Patent Office, NICE, NHS Evidence.",
+      "de": ">33 Millionen Artikel, Preprints und Abstracts aus dem biomedizinischen/biowissenschaftlichen Bereich, darunter 10,2 Millionen Volltexte und >6,5 Millionen OA-Artikel. Quellen: PubMed/Medline, Agricola, Chinese Biological Abstracts, Europäisches Patentamt, NICE, NHS Evidence."
+    },
+    "license": {
+      "en": "✅ Freely accessible | ⚠️ Full-text access determined by article license status",
+      "de": "✅ Frei zugänglich | ⚠️ Volltextzugang richtet sich nach dem Lizenzstatus des Artikels"
+    },
+    "contentFormats": {
+      "en": "RESTful API (XML/JSON/DC) | SOAP API (XML) | Queryable data: annotations/extracted entities (gene, protein, chemical, disease, organism, GO terms, accession numbers), citations, references, database links, supplementary files, book HTML/XML/PDF links",
+      "de": "RESTful API (XML/JSON/DC) | SOAP API (XML) | Abfragbare Daten: Annotationen/extrahierte Entitäten (Gen, Protein, Chemikalie, Krankheit, Organismus, GO-Terme, Akzessionsnummern), Zitierungen, Referenzen, Datenbanklinks, Zusatzdateien, Buch-HTML/XML/PDF-Links"
+    },
+    "limitations": {
+      "en": "No explicit rate limits; responsible use expected. Bulk download provided via FTP.",
+      "de": "Keine expliziten Anfragenlimits; verantwortungsvoller Umgang wird erwartet. Massendownload über FTP verfügbar."
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "EBI Search (Web)",
+          "de": "EBI Search (Web)"
+        },
+        "url": "https://www.ebi.ac.uk/ebisearch/"
+      },
+      {
+        "label": {
+          "en": "EBI Search RESTful API",
+          "de": "EBI Search RESTful API"
+        },
+        "url": "https://www.ebi.ac.uk/ebisearch/documentation"
+      },
+      {
+        "label": {
+          "en": "SOAP Web Service Guide",
+          "de": "SOAP Web Service Guide"
+        },
+        "url": "https://europepmc.org/RestfulWebService"
+      },
+      {
+        "label": {
+          "en": "Europe PMC Annotations API",
+          "de": "Europe PMC Annotations API"
+        },
+        "url": "https://europepmc.org/AnnotationsApi"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "No registration or API key required.",
+      "de": "Keine Registrierung oder API-Schlüssel erforderlich."
+    },
+    "lastSighted": "",
+    "lastModified": "2026-03-31"
+  },
+  {
+    "name": "Europeana APIs",
+    "url": "https://apis.europeana.eu/en",
+    "endpoint": "https://api.europeana.eu/record/v2/",
+    "description": {
+      "en": "Access to rich cultural heritage data (images, text, audio, video, 3D objects) from thousands of institutions across Europe. Includes search, retrieval, and thumbnail APIs.",
+      "de": "Zugang zu reichhaltigen Kulturdaten (Bilder, Texte, Audio, Video, 3D-Objekte) von Tausenden europäischen Institutionen. Enthält Such-, Abruf- und Thumbnail-APIs."
+    },
+    "license": {
+      "en": "⚠️ API key required | Data under various open licenses (CC BY",
+      "de": "⚠️ API-Schlüssel erforderlich | Daten unter verschiedenen offenen Lizenzen (CC BY"
+    },
+    "contentFormats": {
+      "en": "CC0",
+      "de": "CC0 usw.)"
+    },
+    "limitations": {
+      "en": "etc.)",
+      "de": "REST API (JSON, JSON-LD) | Search API | Record API | Thumbnail API | IIIF Manifest API"
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "Europeana API Documentation",
+          "de": "Europeana API-Dokumentation"
+        },
+        "url": "https://pro.europeana.eu/page/apis"
+      },
+      {
+        "label": {
+          "en": "API Console",
+          "de": "API-Konsole"
+        },
+        "url": "https://api.europeana.eu/console"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "10,000 API calls/day (free tier)",
+      "de": "Europeana API-Dokumentation | API-Konsole"
+    },
+    "lastSighted": "Europeana API Documentation | API Console",
+    "lastModified": "2026-03-31"
+  },
+  {
+    "name": "JSTOR Text Analysis Support",
+    "url": "https://support.jstor.org/hc/en-us/articles/32479181127575-JSTOR-Text-Analysis-Support-Getting-Started",
+    "endpoint": "N/A (no real-time API)",
+    "description": {
+      "en": "Text mining content including journals, OA eBooks, OCR data (Reveal Digital open collections), pamphlets, and research reports. Images and media excluded.",
+      "de": "Text-Mining-Inhalte aus Zeitschriften, OA-E-Books, OCR-Daten (Reveal Digital Open Collections), Broschüren und Forschungsberichten. Bilder und Medien ausgenommen."
+    },
+    "license": {
+      "en": "✅ Non-commercial research",
+      "de": "✅ Nicht-kommerzielle Forschung"
+    },
+    "contentFormats": {
+      "en": "teaching",
+      "de": "Lehre und Lernen | ❌ Training von KI-Modellen Dritter nicht gestattet"
+    },
+    "limitations": {
+      "en": "and learning | ❌ Training third-party AI models not permitted",
+      "de": "Keine klassische Echtzeit-API | Metadaten: JSONL-Dump (JSTOR Bibliographic Metadata File) | Volltext: individuelle Datensätze auf Anfrage | Daten mit Python filterbar"
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "Working with JSTOR Bibliographic Metadata",
+          "de": "Arbeiten mit JSTOR-Bibliografiemetadaten"
+        },
+        "url": "https://support.jstor.org/hc/en-us/articles/360051024991"
+      },
+      {
+        "label": {
+          "en": "Working with JSTOR Full-Text Datasets",
+          "de": "Arbeiten mit JSTOR-Volltextdatensätzen"
+        },
+        "url": "https://support.jstor.org/hc/en-us/articles/360051941012"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "Maximum dataset size: 1.5 million items",
+      "de": "5 Millionen Einträge"
+    },
+    "lastSighted": "Working with JSTOR Bibliographic Metadata | Working with JSTOR Full-Text Datasets",
+    "lastModified": "2026-03-31"
+  },
+  {
+    "name": "GBIF API",
+    "url": "https://techdocs.gbif.org/en/openapi/",
+    "endpoint": "https://api.gbif.org/",
+    "description": {
+      "en": "Programmatic access to query and publish biodiversity occurrence data on GBIF.org. Enables advanced queries, workflow integration, script automation, and data embedding.",
+      "de": "Programmatischer Zugang zur Abfrage und Veröffentlichung von Biodiversitätsdaten auf GBIF.org. Ermöglicht erweiterte Abfragen, Workflow-Integration, Skriptautomatisierung und Dateneinbettung."
+    },
+    "license": {
+      "en": "✅ Freely accessible | Data licensing varies per dataset; GBIF terms apply",
+      "de": "✅ Frei zugänglich | Datenlizenzierung je nach Datensatz; GBIF-Nutzungsbedingungen gelten"
+    },
+    "contentFormats": {
+      "en": "REST API (JSON) | Key endpoints: Registry, Species, Occurrence, Maps (v2), Literature, Validator, Vocabularies, Analytics",
+      "de": "REST API (JSON) | Wichtige Endpunkte: Registry, Species, Occurrence, Maps (v2), Literature, Validator, Vocabularies, Analytics"
+    },
+    "limitations": {
+      "en": "HTTP 429 during high server load. For scripts taking >15 min, request a download instead. No guaranteed query rate. Recommended: set HTTP User-Agent to URL or email address.",
+      "de": "HTTP 429 bei hoher Serverlast. Für Skripte mit >15 Min. Laufzeit stattdessen einen Download anfordern. Keine garantierte Abfragerate. Empfehlung: HTTP-User-Agent auf URL oder E-Mail-Adresse setzen."
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "GBIF OpenAPI Reference",
+          "de": "GBIF OpenAPI-Referenz"
+        },
+        "url": "https://techdocs.gbif.org/en/openapi/"
+      },
+      {
+        "label": {
+          "en": "GBIF Technical Documentation",
+          "de": "GBIF Technische Dokumentation"
+        },
+        "url": "https://techdocs.gbif.org/"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "Most queries: no authentication | POST/PUT/DELETE: GBIF account required (HTTP Basic Auth)",
+      "de": "Meiste Abfragen: keine Authentifizierung | POST/PUT/DELETE: GBIF-Konto erforderlich (HTTP Basic Auth)"
+    },
+    "lastSighted": "",
+    "lastModified": "2026-03-31"
+  },
+  {
+    "name": "Google Books API",
+    "url": "https://developers.google.com/books/docs/v1/getting_started",
+    "endpoint": "https://www.googleapis.com/books/v1/",
+    "description": {
+      "en": "Search and retrieve book volume metadata, manage personal bookshelves, retrieve reviews and reading positions. Embed Google Books features into websites and apps.",
+      "de": "Suche und Abruf von Buchmetadaten, Verwaltung persönlicher Bücherregale, Abruf von Rezensionen und Leseständen. Integration von Google Books-Funktionen in Webseiten und Apps."
+    },
+    "license": {
+      "en": "Content: CC BY 4.0 | Code samples: Apache 2.0 | ⚠️ API key required for public data",
+      "de": "Inhalte: CC BY 4.0 | Codebeispiele: Apache 2.0 | ⚠️ API-Schlüssel für öffentliche Daten erforderlich"
+    },
+    "contentFormats": {
+      "en": "REST API (JSON) | Endpoints: volumes (list/retrieve), bookshelves (list/retrieve/insert/update/delete) | Example: GET https://www.googleapis.com/books/v1/volumes?q=quilting",
+      "de": "REST API (JSON) | Endpunkte: volumes (auflisten/abrufen), bookshelves (auflisten/abrufen/einfügen/aktualisieren/löschen) | Beispiel: GET https://www.googleapis.com/books/v1/volumes?q=quilting"
+    },
+    "limitations": {
+      "en": "Rate limits not specified in documentation.",
+      "de": "Anfragenlimits in der Dokumentation nicht angegeben."
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "Google Books API Documentation",
+          "de": "Google Books API-Dokumentation"
+        },
+        "url": "https://developers.google.com/books/docs/v1/getting_started"
+      },
+      {
+        "label": {
+          "en": "Google API Console",
+          "de": "Google API Console"
+        },
+        "url": "https://console.developers.google.com/"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "API key required for public data (via Google API Console) | OAuth 2.0 required for private library operations",
+      "de": "API-Schlüssel für öffentliche Daten erforderlich (über Google API Console) | OAuth 2.0 für private Bücherregale erforderlich"
+    },
+    "lastSighted": "",
+    "lastModified": "2026-03-31"
+  },
+  {
+    "name": "Impresso",
+    "url": "https://impresso-project.ch/datalab/",
+    "endpoint": "https://impresso-project.ch/public-api/v1/",
+    "description": {
+      "en": "Historical newspaper and radio archive corpus from multiple European collections, enriched with machine learning (NER, text reuse, topic models). Covers articles, entities, media sources, collections, and text reuse clusters. Research project funded by Swiss and Luxembourg research foundations.",
+      "de": "Historisches Zeitungs- und Radioarchiv-Korpus aus mehreren europäischen Sammlungen, angereichert durch maschinelles Lernen (NER, Textwiederverwertung, Themenmodelle). Umfasst Artikel, Entitäten, Medienquellen, Sammlungen und Textwiederverwertungs-Cluster. Forschungsprojekt gefördert durch schweizerische und luxemburgische Forschungsförderungen."
+    },
+    "license": {
+      "en": "Python library: GNU AGPL v3 | Data access: registration required via Impresso Datalab | ❌ Commercial use not permitted without agreement",
+      "de": "Python-Bibliothek: GNU AGPL v3 | Datenzugang: Registrierung über Impresso Datalab erforderlich | ❌ Kommerzielle Nutzung ohne Vereinbarung nicht gestattet"
+    },
+    "contentFormats": {
+      "en": "REST API (JSON) | Python client library (pip install impresso) | Resources: Search (articles by term/date/language/entity/topic) | Entities (persons, locations; Wikidata-linked) | Media Sources (newspapers/publications) | Collections (user-curated) | Text Reuse (clusters and passages) | NER/NEL tools | Results exportable as pandas DataFrame",
+      "de": "REST API (JSON) | Python-Clientbibliothek (pip install impresso) | Ressourcen: Suche (Artikel nach Begriff/Datum/Sprache/Entität/Thema) | Entitäten (Personen, Orte; Wikidata-verknüpft) | Medienquellen (Zeitungen/Publikationen) | Sammlungen (nutzerdefiniert) | Textwiederverwertung (Cluster und Passagen) | NER/NEL-Werkzeuge | Ergebnisse als pandas DataFrame exportierbar"
+    },
+    "limitations": {
+      "en": "Rate limits not publicly specified | Access restricted to registered users | Token-based authentication (stored in ~/.impresso_py.yml)",
+      "de": "Anfragenlimits nicht öffentlich angegeben | Zugang auf registrierte Nutzer beschränkt | Token-basierte Authentifizierung (gespeichert in ~/.impresso_py.yml)"
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "Impresso Datalab",
+          "de": "Impresso Datalab"
+        },
+        "url": "https://impresso-project.ch/datalab/"
+      },
+      {
+        "label": {
+          "en": "Python Library Documentation (impresso-py)",
+          "de": "Python-Bibliothek Dokumentation (impresso-py)"
+        },
+        "url": "https://impresso.github.io/impresso-py/"
+      },
+      {
+        "label": {
+          "en": "Swagger API Docs",
+          "de": "Swagger API-Dokumentation"
+        },
+        "url": "https://impresso-project.ch/public-api/v1/docs/"
+      },
+      {
+        "label": {
+          "en": "GitHub: impresso/impresso-py",
+          "de": "GitHub: impresso/impresso-py"
+        },
+        "url": "https://github.com/impresso/impresso-py"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "Register at https://impresso-project.ch/datalab/ to obtain an access token. Authenticate via impresso.connect() in the Python library.",
+      "de": "Registrierung unter https://impresso-project.ch/datalab/ zum Erhalt eines Zugangs-Tokens. Authentifizierung über impresso.connect() in der Python-Bibliothek."
+    },
+    "lastSighted": "",
+    "lastModified": "2026-03-31"
+  },
+  {
+    "name": "Linked Data Service with DNB SPARQL Service",
+    "url": "https://www.dnb.de/EN/Professionell/Metadatendienste/Datenbezug/LDS/lds.html",
+    "endpoint": "SRU: https://services.dnb.de/sru/dnb | OAI-PMH: https://services.dnb.de/oai/repository | SPARQL (BETA): https://data.dnb.de/sparql",
+    "description": {
+      "en": "German National Library national bibliographic data and GND authority data in RDF format, contributing to the global semantic web.",
+      "de": "Nationalbibliografische Daten und GND-Normdaten der Deutschen Nationalbibliothek im RDF-Format als Beitrag zum globalen Semantic Web."
+    },
+    "license": {
+      "en": "CC BY 4.0",
+      "de": "CC BY 4.0"
+    },
+    "contentFormats": {
+      "en": "RDF serializations: Turtle, RDF/XML, JSON-LD (UTF-8 NFD) | SRU interface (standard search) | OAI-PMH interface (metadata harvesting) | DNB SPARQL Service BETA (available since September 2025) | Data Shop (RDF downloads)",
+      "de": "RDF-Serialisierungen: Turtle, RDF/XML, JSON-LD (UTF-8 NFD) | SRU-Schnittstelle (Standardsuche) | OAI-PMH-Schnittstelle (Metadaten-Harvesting) | DNB SPARQL Service BETA (verfügbar seit September 2025) | Data Shop (RDF-Downloads)"
+    },
+    "limitations": {
+      "en": "Rate limits not specified; contact metadatendienste@dnb.de",
+      "de": "Anfragenlimits nicht angegeben; Kontakt: metadatendienste@dnb.de"
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "DNB LDS Documentation",
+          "de": "DNB LDS-Dokumentation"
+        },
+        "url": "https://www.dnb.de/EN/Professionell/Metadatendienste/Datenbezug/LDS/lds.html"
+      },
+      {
+        "label": {
+          "en": "Business Model",
+          "de": "Geschäftsmodell"
+        },
+        "url": "https://www.dnb.de/EN/Professionell/Metadatendienste/Datenbezug/LDS/businessmodel.html"
+      },
+      {
+        "label": {
+          "en": "SPARQL Service",
+          "de": "SPARQL Service"
+        },
+        "url": "https://data.dnb.de/sparql"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "No authentication specified for read access. Contact: metadatendienste@dnb.de",
+      "de": "Keine Authentifizierung für Lesezugriff angegeben. Kontakt: metadatendienste@dnb.de"
+    },
+    "lastSighted": "",
+    "lastModified": "2026-03-31"
+  },
+  {
+    "name": "Nominatim",
+    "url": "https://nominatim.org/release-docs/latest/",
+    "endpoint": "https://nominatim.openstreetmap.org/",
+    "description": {
+      "en": "Search OSM data by name and address; reverse geocoding (generate addresses from coordinates); limited feature-type search (e.g., pubs, hotels, churches).",
+      "de": "Suche in OSM-Daten nach Name und Adresse; Reverse Geocoding (Koordinaten in Adressen umwandeln); eingeschränkte Suche nach Objekttypen (z.B. Kneipen, Hotels, Kirchen)."
+    },
+    "license": {
+      "en": "Open source (GNU GPL) | OSM data under ODbL",
+      "de": "Open Source (GNU GPL) | OSM-Daten unter ODbL"
+    },
+    "contentFormats": {
+      "en": "REST API | Output formats: JSON, XML, GeoJSON, GeocodeJSON | Endpoints: /search, /reverse, /lookup, /status, /details",
+      "de": "REST API | Ausgabeformate: JSON, XML, GeoJSON, GeocodeJSON | Endpunkte: /search, /reverse, /lookup, /status, /details"
+    },
+    "limitations": {
+      "en": "Max 1 request/sec on public instance (https://nominatim.openstreetmap.org/). No bulk geocoding. Self-hosting recommended for heavy use.",
+      "de": "Max. 1 Anfrage/Sek. auf der öffentlichen Instanz (https://nominatim.openstreetmap.org/). Kein Massen-Geocoding. Für intensiven Einsatz wird Self-Hosting empfohlen."
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "Nominatim API Documentation",
+          "de": "Nominatim API-Dokumentation"
+        },
+        "url": "https://nominatim.org/release-docs/latest/"
+      },
+      {
+        "label": {
+          "en": "Usage Policy",
+          "de": "Nutzungsrichtlinien"
+        },
+        "url": "https://operations.osmfoundation.org/policies/nominatim/"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "No API key required. Must comply with Nominatim Usage Policy. Self-hosting encouraged for high-volume use.",
+      "de": "Kein API-Schlüssel erforderlich. Einhaltung der Nominatim-Nutzungsrichtlinien erforderlich. Self-Hosting für hohe Anfragevolumen empfohlen."
+    },
+    "lastSighted": "",
+    "lastModified": "2026-03-31"
+  },
+  {
+    "name": "OpenAlex",
+    "url": "https://developers.openalex.org/api-reference/introduction",
+    "endpoint": "https://api.openalex.org/",
+    "description": {
+      "en": "Open-source citation database with >450 million scholarly works. Open alternative to Scopus/Web of Science. Sources: Crossref, DOAJ, Microsoft Academic Graph, ORCID, Unpaywall, PubMed, PubMed Central, ROR. Covers grey literature, preprints, non-English research.",
+      "de": "Open-Source-Zitationsdatenbank mit >450 Millionen wissenschaftlichen Werken. Offene Alternative zu Scopus/Web of Science. Quellen: Crossref, DOAJ, Microsoft Academic Graph, ORCID, Unpaywall, PubMed, PubMed Central, ROR. Deckt graue Literatur, Preprints und nicht-englischsprachige Forschung ab."
+    },
+    "license": {
+      "en": "✅ Freely accessible (CC0) | ❌ Premium institution-level API access is fee-based",
+      "de": "✅ Frei zugänglich (CC0) | ❌ Premium-API-Zugang auf Institutionsebene ist kostenpflichtig"
+    },
+    "contentFormats": {
+      "en": "REST API (JSON) | Endpoints: works, authors, sources, institutions, topics, publishers, funders | Complex filters supported (e.g., indexed by DOAJ) | Snapshots (JSONL): full database, updated monthly | Content API: PDF full texts (100 credits/PDF), TEI XML, Markdown (planned)",
+      "de": "REST API (JSON) | Endpunkte: works, authors, sources, institutions, topics, publishers, funders | Komplexe Filter unterstützt (z.B. in DOAJ indexiert) | Snapshots (JSONL): vollständige Datenbank, monatlich aktualisiert | Content API: PDF-Volltexte (100 Credits/PDF), TEI XML, Markdown (geplant)"
+    },
+    "limitations": {
+      "en": "100 credits/24h without API key | 100,000 credits/24h with free API key | Max 100 queries/sec per user | Single entity = 1 credit; list of entities = 10 credits | Bulk PDF downloads require Enterprise credits",
+      "de": "100 Credits/24h ohne API-Schlüssel | 100.000 Credits/24h mit kostenlosem API-Schlüssel | Max. 100 Abfragen/Sek. pro Nutzer | Einzelne Entität = 1 Credit; Liste von Entitäten = 10 Credits | PDF-Massendownloads erfordern Enterprise-Credits"
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "OpenAlex Web Interface",
+          "de": "OpenAlex Weboberfläche"
+        },
+        "url": "https://openalex.org/"
+      },
+      {
+        "label": {
+          "en": "OpenAlex API Reference",
+          "de": "OpenAlex API-Referenz"
+        },
+        "url": "https://developers.openalex.org/api-reference/introduction"
+      },
+      {
+        "label": {
+          "en": "Comparison with other scholarly data sources",
+          "de": "Vergleich mit anderen wissenschaftlichen Datenquellen"
+        },
+        "url": "https://openalex.org/about"
+      },
+      {
+        "label": {
+          "en": "Pricing and Rate Limits",
+          "de": "Preise und Anfragenlimits"
+        },
+        "url": "https://openalex.org/pricing"
+      },
+      {
+        "label": {
+          "en": "Tutorials",
+          "de": "Tutorials"
+        },
+        "url": "https://docs.openalex.org/tutorials"
+      },
+      {
+        "label": {
+          "en": "Blog",
+          "de": "Blog"
+        },
+        "url": "https://blog.openalex.org/"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "Free API key required. See: https://docs.openalex.org/how-to-use-the-api/api-overview",
+      "de": "Kostenloser API-Schlüssel erforderlich. Siehe: https://docs.openalex.org/how-to-use-the-api/api-overview"
+    },
+    "lastSighted": "",
+    "lastModified": "2026-03-31"
+  },
+  {
+    "name": "Open Parl Data API",
+    "url": "https://opendata.ch/news/test-our-open-parl-data-api/",
+    "endpoint": "https://api.openparliament.ch/ (tentative)",
+    "description": {
+      "en": "Harmonized parliamentary data from 74 national, cantonal and municipal parliaments across 46 cities, 26 cantons, and 2 countries (Switzerland and Liechtenstein). Covers motions, votes, members, and sessions.",
+      "de": "Harmonisierte Parlamentsdaten aus 74 nationalen, kantonalen und kommunalen Parlamenten in 46 Städten, 26 Kantonen und 2 Ländern (Schweiz und Liechtenstein). Umfasst Motionen, Abstimmungen, Mitglieder und Sitzungen."
+    },
+    "license": {
+      "en": "✅ Open data (opendata.ch)",
+      "de": "✅ Offene Daten (opendata.ch)"
+    },
+    "contentFormats": {
+      "en": "REST API (JSON) | Data: parliamentary motions, votes, members, sessions | Coverage: national, cantonal, and municipal parliaments in CH/LI",
+      "de": "REST API (JSON) | Daten: parlamentarische Motionen, Abstimmungen, Mitglieder, Sitzungen | Abdeckung: nationale, kantonale und kommunale Parlamente in CH/LI"
+    },
+    "limitations": {
+      "en": "Rate limits not specified; contact opendata.ch",
+      "de": "Anfragenlimits nicht angegeben; Kontakt: opendata.ch"
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "opendata.ch announcement",
+          "de": "opendata.ch-Ankündigung"
+        },
+        "url": "https://opendata.ch/news/test-our-open-parl-data-api/"
+      },
+      {
+        "label": {
+          "en": "Project documentation",
+          "de": "Projektdokumentation"
+        },
+        "url": "https://opendata.ch/projects/open-parl-data/"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "Contact opendata.ch for access; API may still be in testing phase (as of August 2025)",
+      "de": "opendata.ch für Zugang kontaktieren; API befindet sich möglicherweise noch in der Testphase (Stand: August 2025)"
+    },
+    "lastSighted": "",
+    "lastModified": "2026-03-31"
+  },
+  {
+    "name": "ORCID API",
+    "url": "https://info.orcid.org/what-is-orcid/services/public-api/",
+    "endpoint": "https://pub.orcid.org/v3.0/",
+    "description": {
+      "en": "Public API for non-member organizations to connect to the ORCID registry via machine-to-machine communications. Supports OAuth sign-in, ORCID iD collection, public record retrieval, and registry search.",
+      "de": "Öffentliche API für Nicht-Mitgliedsorganisationen zur maschinellen Anbindung an das ORCID-Register. Unterstützt OAuth-Anmeldung, ORCID-iD-Erfassung, Abruf öffentlicher Datensätze und Registersuche."
+    },
+    "license": {
+      "en": "ORCID Public APIs Terms of Service",
+      "de": "Nutzungsbedingungen der ORCID Public APIs"
+    },
+    "contentFormats": {
+      "en": "RESTful API | Formats: XML and JSON | Endpoints: OAuth sign-in, public data retrieval, registry search, ORCID iD validation",
+      "de": "RESTful API | Formate: XML und JSON | Endpunkte: OAuth-Anmeldung, Abruf öffentlicher Daten, Registersuche, ORCID-iD-Validierung"
+    },
+    "limitations": {
+      "en": "Rate limits not specified in documentation.",
+      "de": "Anfragenlimits in der Dokumentation nicht angegeben."
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "ORCID Public API Documentation",
+          "de": "ORCID Public API-Dokumentation"
+        },
+        "url": "https://info.orcid.org/documentation/"
+      },
+      {
+        "label": {
+          "en": "ORCID API Tutorial",
+          "de": "ORCID API-Tutorial"
+        },
+        "url": "https://info.orcid.org/documentation/api-tutorials/"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "Register application via ORCID Developer Tools (email verification required). Test on sandbox (sandbox.orcid.org) before production.",
+      "de": "Anwendung über ORCID Developer Tools registrieren (E-Mail-Verifizierung erforderlich). Vor dem Produktionsbetrieb auf der Sandbox (sandbox.orcid.org) testen."
+    },
+    "lastSighted": "",
+    "lastModified": "2026-03-31"
+  },
+  {
+    "name": "Overpass API",
+    "url": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+    "endpoint": "Main: https://overpass-api.de/api/interpreter | CH: https://overpass.osm.ch/api/interpreter",
+    "description": {
+      "en": "Read-only database API for querying OpenStreetMap data. Query by location, object type, tags, proximity, or combinations. Optimized for data consumers needing specific map elements.",
+      "de": "Read-only-Datenbank-API zur Abfrage von OpenStreetMap-Daten. Abfragen nach Standort, Objekttyp, Tags, Nähe oder Kombinationen. Optimiert für Datenkonsumenten, die spezifische Kartenelemente benötigen."
+    },
+    "license": {
+      "en": "GNU AGPL v3 | OSM data under CC BY-SA 2.0",
+      "de": "GNU AGPL v3 | OSM-Daten unter CC BY-SA 2.0"
+    },
+    "contentFormats": {
+      "en": "Query languages: Overpass QL, XML | Output formats: JSON, XML, CSV, GeoJSON, GPX",
+      "de": "Abfragesprachen: Overpass QL, XML | Ausgabeformate: JSON, XML, CSV, GeoJSON, GPX"
+    },
+    "limitations": {
+      "en": "<10,000 queries/day and <1 GB/day recommended on public instances. Use a local instance for heavy workloads.",
+      "de": "<10.000 Abfragen/Tag und <1 GB/Tag auf öffentlichen Instanzen empfohlen. Für intensive Nutzung lokale Instanz verwenden."
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "OSM Wiki: Overpass API",
+          "de": "OSM-Wiki: Overpass API"
+        },
+        "url": "https://wiki.openstreetmap.org/wiki/Overpass_API"
+      },
+      {
+        "label": {
+          "en": "Overpass Turbo (interactive)",
+          "de": "Overpass Turbo (interaktiv)"
+        },
+        "url": "https://overpass-turbo.eu/"
+      },
+      {
+        "label": {
+          "en": "Overpass API Documentation",
+          "de": "Overpass API-Dokumentation"
+        },
+        "url": "https://dev.overpass-api.de/overpass-doc/en/"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "No API key required for public instances.",
+      "de": "Kein API-Schlüssel für öffentliche Instanzen erforderlich."
+    },
+    "lastSighted": "",
+    "lastModified": "2026-03-31"
+  },
+  {
+    "name": "PubMed Central",
+    "url": "https://pmc.ncbi.nlm.nih.gov/tools/developers/",
+    "endpoint": "E-Utilities: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/ | OAI-PMH: https://www.ncbi.nlm.nih.gov/pmc/oai/oai.cgi | BioC API: https://www.ncbi.nlm.nih.gov/research/bionlp/APIs/BioC-PMC/",
+    "description": {
+      "en": "Full-text access to biomedical literature. Collections: PMC Open Access (full texts), Author Manuscript, Historical OCR (18th-20th century), LitArch Open Access.",
+      "de": "Volltextzugang zu biomedizinischer Literatur. Sammlungen: PMC Open Access (Volltexte), Author Manuscript, Historical OCR (18.–20. Jh.), LitArch Open Access."
+    },
+    "license": {
+      "en": "✅ Freely accessible | CC licensing including commercial use | ⚠️ Full-text and TDM permissions determined by article license status",
+      "de": "✅ Frei zugänglich | CC-Lizenzierung inkl. kommerzielle Nutzung | ⚠️ Volltext- und TDM-Berechtigungen richten sich nach dem Artikellizenzstatus"
+    },
+    "contentFormats": {
+      "en": "Full-text formats: JSON, JATS-XML, TXT, BioC, PDF, media files | API services: PMC Cloud Service, PMC OAI-PMH, PMC FTP, E-Utilities, BioC API",
+      "de": "Volltextformate: JSON, JATS-XML, TXT, BioC, PDF, Mediendateien | API-Dienste: PMC Cloud Service, PMC OAI-PMH, PMC FTP, E-Utilities, BioC API"
+    },
+    "limitations": {
+      "en": "Avoid multiple simultaneous queries. Bulk access must use FTP or Cloud Service; no API bulk download.",
+      "de": "Mehrere gleichzeitige Abfragen vermeiden. Massenzugriff muss über FTP oder Cloud Service erfolgen; kein API-Massendownload."
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "NCBI Developers Overview",
+          "de": "NCBI Entwicklerübersicht"
+        },
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/developers/"
+      },
+      {
+        "label": {
+          "en": "E-Utilities Guide",
+          "de": "E-Utilities Guide"
+        },
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK25499/"
+      },
+      {
+        "label": {
+          "en": "BioC API Documentation",
+          "de": "BioC API-Dokumentation"
+        },
+        "url": "https://www.ncbi.nlm.nih.gov/research/bionlp/APIs/BioC-PMC/"
+      },
+      {
+        "label": {
+          "en": "PMC FTP Service",
+          "de": "PMC FTP-Dienst"
+        },
+        "url": "https://ftp.ncbi.nlm.nih.gov/pub/pmc/"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "No API key required, but NCBI requires clients to provide a tool name and email address.",
+      "de": "Kein API-Schlüssel erforderlich, aber NCBI verlangt Angabe von Tool-Name und E-Mail-Adresse."
+    },
+    "lastSighted": "",
+    "lastModified": "2026-03-31"
+  },
+  {
+    "name": "Semantic Scholar",
+    "url": "https://www.semanticscholar.org/product/api",
+    "endpoint": "https://api.semanticscholar.org/",
+    "description": {
+      "en": "REST API for academic literature. Academic Graph API: papers, authors, citations, venues, SPECTER2 embeddings. Recommendations API: similar papers. Datasets API: bulk downloads for local storage.",
+      "de": "REST API für wissenschaftliche Literatur. Academic Graph API: Artikel, Autoren, Zitierungen, Veranstaltungsorte, SPECTER2-Embeddings. Recommendations API: ähnliche Artikel. Datasets API: Massendownloads für lokale Speicherung."
+    },
+    "license": {
+      "en": "✅ Freely accessible (no CC license) | ⚠️ API usage governed by own license agreement",
+      "de": "✅ Frei zugänglich (keine CC-Lizenz) | ⚠️ API-Nutzung unterliegt eigenem Lizenzvertrag"
+    },
+    "contentFormats": {
+      "en": "REST API (JSON) | Academic Graph API | Recommendations API | Datasets API (bulk downloads)",
+      "de": "REST API (JSON) | Academic Graph API | Recommendations API | Datasets API (Massendownloads)"
+    },
+    "limitations": {
+      "en": "Max 500 paper IDs per batch | Max 10 MB per response | Max 9,999 citations per call | Less restrictive with an API key (see documentation)",
+      "de": "Max. 500 Artikel-IDs pro Batch | Max. 10 MB pro Antwort | Max. 9.999 Zitierungen pro Aufruf | Mit API-Schlüssel weniger restriktiv (siehe Dokumentation)"
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "Semantic Scholar API Documentation",
+          "de": "Semantic Scholar API-Dokumentation"
+        },
+        "url": "https://api.semanticscholar.org/api-docs/"
+      },
+      {
+        "label": {
+          "en": "Python Client Library",
+          "de": "Python Client Library"
+        },
+        "url": "https://github.com/allenai/semanticscholar"
+      },
+      {
+        "label": {
+          "en": "API Tutorial",
+          "de": "API-Tutorial"
+        },
+        "url": "https://www.semanticscholar.org/product/api#api-overview"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "No API key required, but recommended. Individual license agreement required for use.",
+      "de": "Kein API-Schlüssel erforderlich, aber empfohlen. Individueller Lizenzvertrag für die Nutzung erforderlich."
+    },
+    "lastSighted": "",
+    "lastModified": "2026-03-31"
+  },
+  {
+    "name": "Unpaywall",
+    "url": "https://unpaywall.org/products/api",
+    "endpoint": "https://api.unpaywall.org/v2/",
+    "description": {
+      "en": "DOI-based OA metadata API. Returns OA status (gold/green/hybrid/bronze/closed), license links, best_oa_location, and full-text URLs. Also supports title search.",
+      "de": "DOI-basierte OA-Metadaten-API. Liefert OA-Status (gold/grün/hybrid/bronze/closed), Lizenzlinks, best_oa_location und Volltext-URLs. Unterstützt auch Titelsuche."
+    },
+    "license": {
+      "en": "✅ Freely accessible",
+      "de": "✅ Frei zugänglich"
+    },
+    "contentFormats": {
+      "en": "REST API (JSON) | DOI-based lookup | Title search (max 50 results/page) | Data dumps available for large-scale projects",
+      "de": "REST API (JSON) | DOI-basierte Abfrage | Titelsuche (max. 50 Ergebnisse/Seite) | Daten-Dumps für groß angelegte Projekte verfügbar"
+    },
+    "limitations": {
+      "en": "<100,000 calls/24 hours | Title search: max 50 results/page | Large-scale projects: use data dumps",
+      "de": "<100.000 Aufrufe/24 Stunden | Titelsuche: max. 50 Ergebnisse/Seite | Für groß angelegte Projekte: Daten-Dumps verwenden"
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "API Documentation",
+          "de": "API-Dokumentation"
+        },
+        "url": "https://unpaywall.org/products/api"
+      },
+      {
+        "label": {
+          "en": "Unpaywall Support Portal",
+          "de": "Unpaywall Support-Portal"
+        },
+        "url": "https://support.unpaywall.org/"
+      },
+      {
+        "label": {
+          "en": "How to use the title search API",
+          "de": "Verwendung der Titelsuche-API"
+        },
+        "url": "https://unpaywall.org/products/api#title-search"
+      },
+      {
+        "label": {
+          "en": "How Unpaywall is transforming Open Science",
+          "de": "Wie Unpaywall Open Science verändert"
+        },
+        "url": "https://unpaywall.org/"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "No API key required. Requests must include an email address as URL parameter (e.g., ?email=you@example.com).",
+      "de": "Kein API-Schlüssel erforderlich. Anfragen müssen eine E-Mail-Adresse als URL-Parameter enthalten (z.B. ?email=ihre@email.de)."
+    },
+    "lastSighted": "",
+    "lastModified": "2026-03-31"
+  },
+  {
+    "name": "VIAF API",
+    "url": "https://developer.api.oclc.org/viaf-api",
+    "endpoint": "https://viaf.org/viaf/",
+    "description": {
+      "en": "Virtual International Authority File: linked authority data from national libraries worldwide. Virtually combines multiple LAM (Library, Archives, Museum) name authority files into a single service.",
+      "de": "Virtual International Authority File: Verknüpfte Normdaten nationaler Bibliotheken weltweit. Fasst mehrere LAM-Normdateien (Bibliotheken, Archive, Museen) in einem einzigen Dienst zusammen."
+    },
+    "license": {
+      "en": "ODC Attribution License (ODC-By) | Attribution required",
+      "de": "ODC Attribution License (ODC-By) | Namensnennung erforderlich"
+    },
+    "contentFormats": {
+      "en": "JSON, XML, RDF | URI-based access with HTTP content negotiation | Example: https://viaf.org/viaf/49224511 | Data files available for bulk download",
+      "de": "JSON, XML, RDF | URI-basierter Zugang mit HTTP-Content-Negotiation | Beispiel: https://viaf.org/viaf/49224511 | Datendateien für Massendownload verfügbar"
+    },
+    "limitations": {
+      "en": "Rate limits not specified. Note: bulk data files last updated August 2024 (updates paused for security improvements).",
+      "de": "Anfragenlimits nicht angegeben. Hinweis: Massen-Datendateien zuletzt im August 2024 aktualisiert (Updates wegen Sicherheitsverbesserungen pausiert)."
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "OCLC Developer Portal",
+          "de": "OCLC Developer Portal"
+        },
+        "url": "https://developer.api.oclc.org/viaf-api"
+      },
+      {
+        "label": {
+          "en": "VIAF Data Downloads",
+          "de": "VIAF-Daten-Downloads"
+        },
+        "url": "https://viaf.org/viaf/data/"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "No API key required for public URI-based access. OCLC account may be required for full developer portal.",
+      "de": "Kein API-Schlüssel für öffentlichen URI-basierten Zugang erforderlich. OCLC-Konto möglicherweise für das vollständige Entwicklerportal erforderlich."
+    },
+    "lastSighted": "",
+    "lastModified": "2026-03-31"
+  },
+  {
+    "name": "Wikidata:SPARQL",
+    "url": "https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service",
+    "endpoint": "https://query.wikidata.org/sparql",
+    "description": {
+      "en": "SPARQL query service for querying structured linked data in Wikidata. Powers the Wikidata Query Service web interface.",
+      "de": "SPARQL-Abfragedienst für strukturierte Linked Data in Wikidata. Betreibt die Wikidata Query Service-Weboberfläche."
+    },
+    "license": {
+      "en": "CC0 (public domain)",
+      "de": "CC0 (Gemeinfrei)"
+    },
+    "contentFormats": {
+      "en": "SPARQL 1.1 | Output formats: JSON, XML, CSV, TSV, Turtle, N-Triples, JSON-LD | Interactive: https://query.wikidata.org/",
+      "de": "SPARQL 1.1 | Ausgabeformate: JSON, XML, CSV, TSV, Turtle, N-Triples, JSON-LD | Interaktiv: https://query.wikidata.org/"
+    },
+    "limitations": {
+      "en": "60-second query timeout | Max 5 concurrent queries per IP | No bulk download via SPARQL (use Wikidata dumps instead)",
+      "de": "60-Sekunden-Abfragetimeout | Max. 5 gleichzeitige Abfragen pro IP | Kein Massendownload über SPARQL (stattdessen Wikidata-Dumps verwenden)"
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "Wikidata SPARQL Query Service",
+          "de": "Wikidata SPARQL Query Service"
+        },
+        "url": "https://query.wikidata.org/"
+      },
+      {
+        "label": {
+          "en": "SPARQL Tutorial",
+          "de": "SPARQL-Tutorial"
+        },
+        "url": "https://www.wikidata.org/wiki/Wikidata:SPARQL_tutorial"
+      },
+      {
+        "label": {
+          "en": "MediaWiki User Manual",
+          "de": "MediaWiki Benutzerhandbuch"
+        },
+        "url": "https://www.mediawiki.org/wiki/Wikidata_Query_Service/User_Manual"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "No API key required.",
+      "de": "Kein API-Schlüssel erforderlich."
+    },
+    "lastSighted": "",
+    "lastModified": "2026-03-31"
+  },
+  {
+    "name": "opendata.swiss API",
+    "url": "https://handbook.opendata.swiss/de/content/nutzen/api-nutzen.html",
+    "endpoint": "https://ckan.opendata.swiss/api/3/action/",
+    "description": {
+      "en": "Programmatic access to Switzerland's national open data catalog, built on the CKAN platform. Search datasets, retrieve metadata, manage resources.",
+      "de": "Programmatischer Zugang zum nationalen Open-Data-Katalog der Schweiz, aufgebaut auf der CKAN-Plattform. Datensätze suchen, Metadaten abrufen, Ressourcen verwalten."
+    },
+    "license": {
+      "en": "Datasets under various open licenses | CKAN platform (open source)",
+      "de": "Datensätze unter verschiedenen offenen Lizenzen | CKAN-Plattform (Open Source)"
+    },
+    "contentFormats": {
+      "en": "REST API (JSON) | CKAN Action API | Key endpoints: package_search, package_show, organization_list, group_list, status_show | Response: JSON with help, success, result fields",
+      "de": "REST API (JSON) | CKAN Action API | Wichtige Endpunkte: package_search, package_show, organization_list, group_list, status_show | Antwort: JSON mit den Feldern help, success, result"
+    },
+    "limitations": {
+      "en": "Rate limits not specified.",
+      "de": "Anfragenlimits nicht angegeben."
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "opendata.swiss API Handbook",
+          "de": "opendata.swiss API-Handbuch"
+        },
+        "url": "https://handbook.opendata.swiss/de/content/nutzen/api-nutzen.html"
+      },
+      {
+        "label": {
+          "en": "CKAN API Documentation",
+          "de": "CKAN API-Dokumentation"
+        },
+        "url": "https://docs.ckan.org/en/latest/api/"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "Read-only: no authentication required | Write operations (package_create, package_patch): API key required (available from user profile page in opendata.swiss backend)",
+      "de": "Lesezugriff: keine Authentifizierung erforderlich | Schreiboperationen (package_create, package_patch): API-Schlüssel erforderlich (im Nutzerprofil des opendata.swiss-Backends abrufbar)"
+    },
+    "lastSighted": "",
+    "lastModified": "2026-03-31"
+  }
+]

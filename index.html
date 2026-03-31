@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Directory</title>
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f4f6f9;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --accent: #2563eb;
+      --accent-light: #dbeafe;
+      --text: #1e293b;
+      --muted: #64748b;
+      --green: #16a34a;
+      --orange: #d97706;
+      --red: #dc2626;
+      --tag-bg: #f1f5f9;
+      --radius: 12px;
+      --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 12px rgba(0,0,0,.05);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .search-wrap {
+      flex: 1;
+      position: relative;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    #search {
+      width: 100%;
+      padding: 9px 12px 9px 38px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: .95rem;
+      background: var(--bg);
+      color: var(--text);
+      transition: border-color .15s, box-shadow .15s;
+    }
+
+    #search:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-light);
+    }
+
+    .lang-toggle {
+      display: flex;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .lang-btn {
+      padding: 7px 14px;
+      font-size: .875rem;
+      font-weight: 500;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: var(--muted);
+      transition: background .15s, color .15s;
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* ── Main ── */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
+
+    .count {
+      font-size: .875rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    /* ── Grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 20px;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow .2s, transform .2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,.12);
+      transform: translateY(-1px);
+    }
+
+    .card-header {
+      padding: 18px 20px 14px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .card-link {
+      flex-shrink: 0;
+      font-size: .8rem;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 4px 10px;
+      border: 1px solid var(--accent-light);
+      border-radius: 6px;
+      background: var(--accent-light);
+      white-space: nowrap;
+      transition: background .15s;
+    }
+
+    .card-link:hover { background: #bfdbfe; }
+
+    .card-body {
+      padding: 16px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .description {
+      font-size: .9rem;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .field-label {
+      font-size: .72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--muted);
+    }
+
+    .field-value {
+      font-size: .875rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .field-value.endpoint {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: .78rem;
+      background: var(--tag-bg);
+      padding: 4px 8px;
+      border-radius: 5px;
+      color: var(--accent);
+      word-break: break-all;
+    }
+
+    /* pipe-separated tags */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .tag {
+      font-size: .78rem;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 2px 8px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* license badges */
+    .license-line {
+      font-size: .85rem;
+      line-height: 1.5;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 1px 8px;
+      border-radius: 20px;
+      font-size: .75rem;
+      font-weight: 600;
+      margin-right: 4px;
+    }
+
+    .badge-free   { background: #dcfce7; color: var(--green); }
+    .badge-warn   { background: #fef9c3; color: #92400e; }
+    .badge-no     { background: #fee2e2; color: var(--red); }
+
+    /* details toggle */
+    .toggle-btn {
+      margin-top: 4px;
+      padding: 6px 0;
+      font-size: .825rem;
+      color: var(--accent);
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 500;
+    }
+
+    .toggle-btn:hover { text-decoration: underline; }
+
+    .toggle-icon { transition: transform .2s; display: inline-block; }
+    .toggle-btn.open .toggle-icon { transform: rotate(180deg); }
+
+    .details {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .details.open { display: flex; }
+
+    /* doc links */
+    .doc-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .doc-link {
+      font-size: .78rem;
+      padding: 2px 10px;
+      border-radius: 5px;
+      background: var(--accent-light);
+      border: 1px solid #bfdbfe;
+      color: var(--accent);
+      text-decoration: none;
+      line-height: 1.6;
+      transition: background .15s;
+    }
+
+    .doc-link:hover { background: #bfdbfe; text-decoration: underline; }
+
+    .last-modified {
+      font-size: .8rem;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* No results */
+    .empty {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <span class="logo" data-i18n="title"></span>
+    <div class="search-wrap">
+      <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input id="search" type="search" data-i18n-placeholder="search" />
+    </div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btn-de" onclick="setLang('de')">DE</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <p class="count" id="count"></p>
+  <div class="grid" id="grid"></div>
+</main>
+
+<script>
+const i18n = {
+  en: {
+    title: 'API Directory',
+    search: 'Search APIs…',
+    showing: n => `Showing ${n} API${n===1?'':'s'}`,
+    noResults: 'No APIs match your search.',
+    docs: 'Documentation',
+    endpoint: 'Endpoint',
+    license: 'License',
+    formats: 'Content & Formats',
+    limits: 'Limitations',
+    access: 'How to Request Access',
+    lastModified: 'Last Modified',
+    showDetails: 'Show details',
+    hideDetails: 'Hide details',
+  },
+  de: {
+    title: 'API-Verzeichnis',
+    search: 'APIs suchen…',
+    showing: n => `${n} API${n===1?'':'s'} angezeigt`,
+    noResults: 'Keine APIs entsprechen Ihrer Suche.',
+    docs: 'Dokumentation',
+    endpoint: 'Endpunkt',
+    license: 'Lizenz',
+    formats: 'Inhalte & Formate',
+    limits: 'Einschränkungen',
+    access: 'Zugangsbeschaffung',
+    lastModified: 'Zuletzt geändert',
+    showDetails: 'Details anzeigen',
+    hideDetails: 'Details ausblenden',
+  }
+};
+
+let lang = 'en';
+let apis = [];
+
+/* ── helpers ── */
+function t(key) { return i18n[lang][key] ?? key; }
+
+function renderLicense(raw) {
+  if (!raw) return '';
+  const parts = raw.split('|').map(s => s.trim());
+  return parts.map(p => {
+    const text = p.replace(/^[✅⚠️❌]\s*/, '');
+    let cls = '';
+    if (p.startsWith('✅')) cls = 'badge-free';
+    else if (p.startsWith('⚠️')) cls = 'badge-warn';
+    else if (p.startsWith('❌')) cls = 'badge-no';
+    if (cls) return `<span class="badge ${cls}">${text}</span>`;
+    return `<span>${p}</span>`;
+  }).join(' ');
+}
+
+function renderTags(raw) {
+  if (!raw) return '';
+  return raw.split('|').map(s => s.trim()).filter(Boolean)
+    .map(s => `<span class="tag">${s}</span>`).join('');
+}
+
+function buildCard(api) {
+  const desc = api.description[lang] || api.description.en;
+  const license = api.license[lang] || api.license.en;
+  const formats = api.contentFormats[lang] || api.contentFormats.en;
+  const limits = api.limitations[lang] || api.limitations.en;
+  const access = api.howToRequestAccess[lang] || api.howToRequestAccess.en;
+  const endpoint = api.endpoint;
+
+  const id = 'card-' + api.name.replace(/\W+/g, '-');
+
+  return `
+  <div class="card" id="${id}">
+    <div class="card-header">
+      <span class="card-title">${api.name}</span>
+      <a class="card-link" href="${api.url}" target="_blank" rel="noopener">Docs ↗</a>
+    </div>
+    <div class="card-body">
+      <p class="description">${desc}</p>
+
+      ${license ? `
+      <div class="field">
+        <span class="field-label">${t('license')}</span>
+        <div class="license-line">${renderLicense(license)}</div>
+      </div>` : ''}
+
+      ${endpoint ? `
+      <div class="field">
+        <span class="field-label">${t('endpoint')}</span>
+        <div class="tags">${endpoint.split('|').map(s => `<span class="tag" style="font-family:monospace;font-size:.78rem;color:var(--accent)">${s.trim()}</span>`).join('')}</div>
+      </div>` : ''}
+
+      <button class="toggle-btn" onclick="toggleDetails(this, '${id}')">
+        <span class="toggle-icon">▾</span>
+        <span class="toggle-label">${t('showDetails')}</span>
+      </button>
+
+      <div class="details" id="details-${id}">
+        ${formats ? `
+        <div class="field">
+          <span class="field-label">${t('formats')}</span>
+          <div class="tags">${renderTags(formats)}</div>
+        </div>` : ''}
+
+        ${limits ? `
+        <div class="field">
+          <span class="field-label">${t('limits')}</span>
+          <div class="tags">${renderTags(limits)}</div>
+        </div>` : ''}
+
+        ${api.documentation && api.documentation.length ? `
+        <div class="field">
+          <span class="field-label">${t('docs')}</span>
+          <div class="doc-links">${api.documentation.map(d =>
+            `<a class="doc-link" href="${d.url}" target="_blank" rel="noopener">${d.label[lang] || d.label.en} ↗</a>`
+          ).join('')}</div>
+        </div>` : ''}
+
+        ${access ? `
+        <div class="field">
+          <span class="field-label">${t('access')}</span>
+          <p class="field-value">${access}</p>
+        </div>` : ''}
+
+        ${api.lastModified ? `
+        <div class="field">
+          <span class="field-label">${t('lastModified')}</span>
+          <p class="field-value last-modified">${api.lastModified}</p>
+        </div>` : ''}
+      </div>
+    </div>
+  </div>`;
+}
+
+function toggleDetails(btn, cardId) {
+  const det = document.getElementById('details-' + cardId);
+  const isOpen = det.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.querySelector('.toggle-label').textContent = isOpen ? t('hideDetails') : t('showDetails');
+}
+
+function renderGrid(list) {
+  const grid = document.getElementById('grid');
+  if (list.length === 0) {
+    grid.innerHTML = `<p class="empty">${t('noResults')}</p>`;
+  } else {
+    grid.innerHTML = list.map(buildCard).join('');
+  }
+  document.getElementById('count').textContent = t('showing')(list.length);
+}
+
+function filterApis() {
+  const q = document.getElementById('search').value.toLowerCase().trim();
+  if (!q) return apis;
+  return apis.filter(a => {
+    const haystack = [
+      a.name,
+      a.description.en, a.description.de,
+      a.license.en, a.license.de,
+      a.contentFormats.en, a.contentFormats.de,
+      a.limitations.en, a.limitations.de,
+      a.documentation.en, a.documentation.de,
+      a.howToRequestAccess.en, a.howToRequestAccess.de,
+      a.endpoint, a.url
+    ].join(' ').toLowerCase();
+    return q.split(/\s+/).every(w => haystack.includes(w));
+  });
+}
+
+function setLang(l) {
+  lang = l;
+  document.documentElement.lang = l;
+  document.getElementById('btn-en').classList.toggle('active', l === 'en');
+  document.getElementById('btn-de').classList.toggle('active', l === 'de');
+  document.querySelector('[data-i18n="title"]').textContent = t('title');
+  document.title = t('title');
+  document.getElementById('search').placeholder = t('search');
+  renderGrid(filterApis());
+}
+
+document.getElementById('search').addEventListener('input', () => renderGrid(filterApis()));
+
+fetch('api_list.json')
+  .then(r => r.json())
+  .then(data => {
+    apis = data;
+    setLang('en');
+  });
+</script>
+</body>
+</html>
