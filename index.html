@@ -143,12 +143,13 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      cursor: pointer;
       transition: box-shadow .2s, transform .2s;
     }
 
     .card:hover {
       box-shadow: 0 4px 16px rgba(0,0,0,.12);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
 
     .card-header {
@@ -215,16 +216,6 @@
       line-height: 1.5;
     }
 
-    .field-value.endpoint {
-      font-family: 'SF Mono', 'Fira Code', monospace;
-      font-size: .78rem;
-      background: var(--tag-bg);
-      padding: 4px 8px;
-      border-radius: 5px;
-      color: var(--accent);
-      word-break: break-all;
-    }
-
     /* pipe-separated tags */
     .tags {
       display: flex;
@@ -261,35 +252,16 @@
     .badge-warn   { background: #fef9c3; color: #92400e; }
     .badge-no     { background: #fee2e2; color: var(--red); }
 
-    /* details toggle */
-    .toggle-btn {
-      margin-top: 4px;
-      padding: 6px 0;
-      font-size: .825rem;
-      color: var(--accent);
-      background: none;
-      border: none;
-      cursor: pointer;
+    /* card footer hint */
+    .card-footer {
+      padding: 10px 20px;
+      border-top: 1px solid var(--border);
+      font-size: .78rem;
+      color: var(--muted);
       display: flex;
       align-items: center;
       gap: 4px;
-      font-weight: 500;
     }
-
-    .toggle-btn:hover { text-decoration: underline; }
-
-    .toggle-icon { transition: transform .2s; display: inline-block; }
-    .toggle-btn.open .toggle-icon { transform: rotate(180deg); }
-
-    .details {
-      display: none;
-      flex-direction: column;
-      gap: 12px;
-      padding-top: 12px;
-      border-top: 1px dashed var(--border);
-    }
-
-    .details.open { display: flex; }
 
     /* doc links */
     .doc-links {
@@ -326,6 +298,97 @@
       color: var(--muted);
       font-size: 1rem;
     }
+
+    /* ── Modal ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, .45);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: 0 20px 60px rgba(0,0,0,.2);
+      width: 100%;
+      max-width: 640px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      animation: modal-in .18s ease;
+    }
+
+    @keyframes modal-in {
+      from { opacity: 0; transform: translateY(12px) scale(.98); }
+      to   { opacity: 1; transform: translateY(0)    scale(1); }
+    }
+
+    .modal-header {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+
+    .modal-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .modal-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .modal-close {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .15s, color .15s;
+      line-height: 1;
+    }
+
+    .modal-close:hover {
+      background: var(--border);
+      color: var(--text);
+    }
+
+    .modal-body {
+      padding: 20px 24px 24px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .modal-body .field-value a {
+      color: var(--accent);
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -349,6 +412,20 @@
   <div class="grid" id="grid"></div>
 </main>
 
+<!-- Modal -->
+<div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <span class="modal-title" id="modal-title"></span>
+        <a class="card-link" id="modal-docs-link" href="#" target="_blank" rel="noopener">Docs ↗</a>
+      </div>
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
 <script>
 const i18n = {
   en: {
@@ -363,8 +440,7 @@ const i18n = {
     limits: 'Limitations',
     access: 'How to Request Access',
     lastModified: 'Last Modified',
-    showDetails: 'Show details',
-    hideDetails: 'Hide details',
+    details: 'Details',
   },
   de: {
     title: 'API-Verzeichnis',
@@ -378,8 +454,7 @@ const i18n = {
     limits: 'Einschränkungen',
     access: 'Zugangsbeschaffung',
     lastModified: 'Zuletzt geändert',
-    showDetails: 'Details anzeigen',
-    hideDetails: 'Details ausblenden',
+    details: 'Details',
   }
 };
 
@@ -409,21 +484,23 @@ function renderTags(raw) {
     .map(s => `<span class="tag">${s}</span>`).join('');
 }
 
+function linkify(text) {
+  return text.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
+    '<a href="$2" target="_blank" rel="noopener">$1</a>');
+}
+
+/* ── Card (compact) ── */
 function buildCard(api) {
   const desc = api.description[lang] || api.description.en;
   const license = api.license[lang] || api.license.en;
-  const formats = api.contentFormats[lang] || api.contentFormats.en;
-  const limits = api.limitations[lang] || api.limitations.en;
-  const access = api.howToRequestAccess[lang] || api.howToRequestAccess.en;
   const endpoint = api.endpoint;
-
-  const id = 'card-' + api.name.replace(/\W+/g, '-');
+  const safeName = api.name.replace(/'/g, "\\'");
 
   return `
-  <div class="card" id="${id}">
+  <div class="card" onclick="openModal('${safeName}')">
     <div class="card-header">
       <span class="card-title">${api.name}</span>
-      <a class="card-link" href="${api.url}" target="_blank" rel="noopener">Docs ↗</a>
+      <a class="card-link" href="${api.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Docs ↗</a>
     </div>
     <div class="card-body">
       <p class="description">${desc}</p>
@@ -439,56 +516,96 @@ function buildCard(api) {
         <span class="field-label">${t('endpoint')}</span>
         <div class="tags">${endpoint.split('|').map(s => `<span class="tag" style="font-family:monospace;font-size:.78rem;color:var(--accent)">${s.trim()}</span>`).join('')}</div>
       </div>` : ''}
-
-      <button class="toggle-btn" onclick="toggleDetails(this, '${id}')">
-        <span class="toggle-icon">▾</span>
-        <span class="toggle-label">${t('showDetails')}</span>
-      </button>
-
-      <div class="details" id="details-${id}">
-        ${formats ? `
-        <div class="field">
-          <span class="field-label">${t('formats')}</span>
-          <div class="tags">${renderTags(formats)}</div>
-        </div>` : ''}
-
-        ${limits ? `
-        <div class="field">
-          <span class="field-label">${t('limits')}</span>
-          <div class="tags">${renderTags(limits)}</div>
-        </div>` : ''}
-
-        ${api.documentation && api.documentation.length ? `
-        <div class="field">
-          <span class="field-label">${t('docs')}</span>
-          <div class="doc-links">${api.documentation.map(d =>
-            `<a class="doc-link" href="${d.url}" target="_blank" rel="noopener">${d.label[lang] || d.label.en} ↗</a>`
-          ).join('')}</div>
-        </div>` : ''}
-
-        ${access ? `
-        <div class="field">
-          <span class="field-label">${t('access')}</span>
-          <p class="field-value">${access}</p>
-        </div>` : ''}
-
-        ${api.lastModified ? `
-        <div class="field">
-          <span class="field-label">${t('lastModified')}</span>
-          <p class="field-value last-modified">${api.lastModified}</p>
-        </div>` : ''}
-      </div>
+    </div>
+    <div class="card-footer">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      ${t('details')}
     </div>
   </div>`;
 }
 
-function toggleDetails(btn, cardId) {
-  const det = document.getElementById('details-' + cardId);
-  const isOpen = det.classList.toggle('open');
-  btn.classList.toggle('open', isOpen);
-  btn.querySelector('.toggle-label').textContent = isOpen ? t('hideDetails') : t('showDetails');
+/* ── Modal ── */
+function openModal(name) {
+  const api = apis.find(a => a.name === name);
+  if (!api) return;
+
+  const desc    = api.description[lang]       || api.description.en;
+  const license = api.license[lang]           || api.license.en;
+  const formats = api.contentFormats[lang]    || api.contentFormats.en;
+  const limits  = api.limitations[lang]       || api.limitations.en;
+  const access  = linkify(api.howToRequestAccess[lang] || api.howToRequestAccess.en);
+  const endpoint = api.endpoint;
+
+  document.getElementById('modal-title').textContent = api.name;
+  const docsLink = document.getElementById('modal-docs-link');
+  docsLink.href = api.url;
+
+  document.getElementById('modal-body').innerHTML = `
+    <p class="description">${desc}</p>
+
+    ${license ? `
+    <div class="field">
+      <span class="field-label">${t('license')}</span>
+      <div class="license-line">${renderLicense(license)}</div>
+    </div>` : ''}
+
+    ${endpoint ? `
+    <div class="field">
+      <span class="field-label">${t('endpoint')}</span>
+      <div class="tags">${endpoint.split('|').map(s => `<span class="tag" style="font-family:monospace;font-size:.78rem;color:var(--accent)">${s.trim()}</span>`).join('')}</div>
+    </div>` : ''}
+
+    ${formats ? `
+    <div class="field">
+      <span class="field-label">${t('formats')}</span>
+      <div class="tags">${renderTags(formats)}</div>
+    </div>` : ''}
+
+    ${limits ? `
+    <div class="field">
+      <span class="field-label">${t('limits')}</span>
+      <div class="tags">${renderTags(limits)}</div>
+    </div>` : ''}
+
+    ${api.documentation && api.documentation.length ? `
+    <div class="field">
+      <span class="field-label">${t('docs')}</span>
+      <div class="doc-links">${api.documentation.map(d =>
+        `<a class="doc-link" href="${d.url}" target="_blank" rel="noopener">${d.label[lang] || d.label.en} ↗</a>`
+      ).join('')}</div>
+    </div>` : ''}
+
+    ${access ? `
+    <div class="field">
+      <span class="field-label">${t('access')}</span>
+      <p class="field-value">${access}</p>
+    </div>` : ''}
+
+    ${api.lastModified ? `
+    <div class="field">
+      <span class="field-label">${t('lastModified')}</span>
+      <p class="field-value last-modified">${api.lastModified}</p>
+    </div>` : ''}
+  `;
+
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+
+/* ── Grid ── */
 function renderGrid(list) {
   const grid = document.getElementById('grid');
   if (list.length === 0) {

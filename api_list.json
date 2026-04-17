@@ -17,7 +17,7 @@
     },
     "limitations": {
       "en": "No hard rate limit. Recommended: ~3 sec between requests | Max 30,000 results per query | Results returned in slices up to 2,000 | Queries with >1,000 results should be refined | No PDF bulk download via API (only individual links)",
-      "de": "Kein festes Anfragenlimit. Empfehlung: ~3 Sek. Pause zwischen Anfragen | Max. 30.000 Ergebnisse pro Abfrage | Ergebnisse in Scheiben bis zu 2.000 | Abfragen mit >1.000 Ergebnissen sollten verfeinert werden | Kein PDF-Massendownload über die API (nur Einzellinks)"
+      "de": "Kein festes Anfragenlimit. Empfehlung: ~3 Sek. Pause zwischen Anfragen | Max. 30.000 Ergebnisse pro Abfrage | Treffer werden in Blöcken bis 2’000 ausgegeben | Abfragen mit >1.000 Ergebnissen sollten verfeinert werden | Kein PDF-Massendownload über die API (nur Einzellinks)"
     },
     "documentation": [
       {
@@ -32,14 +32,14 @@
           "en": "ArXiv API Quick Reference",
           "de": "ArXiv API Kurzreferenz"
         },
-        "url": "https://info.arxiv.org/help/api/basics.html"
+        "url": "https://ee547.usc-ece.com/guides/arxiv-api.html#sec-arxiv-api"
       }
     ],
     "howToRequestAccess": {
-      "en": "No registration or API key required. Use responsibly per Terms of Use.",
-      "de": "Keine Registrierung oder API-Schlüssel erforderlich. Verantwortungsvoller Umgang gemäß Nutzungsbedingungen."
+      "en": "No registration or API key required ⚠️ Use responsibly in compliance with the [Terms of Use for arXiv API](https://info.arxiv.org/help/api/tou.html).",
+      "de": "Keine Registrierung oder API-Key nötig ⚠️ Nutzung muss den [arXiv-API-Terms of Use](https://info.arxiv.org/help/api/tou.html) entsprechen (inkl. verantwortungsvollem Request-Verhalten)."
     },
-    "lastSighted": "",
+    "lastSighted": "2026-04-17",
     "lastModified": "2026-03-31"
   },
   {
@@ -51,12 +51,12 @@
       "de": "Von Verlagen bereitgestellte Metadaten inkl. Volltext-URLs (sofern verfügbar). Mehrere APIs für Abfragen, Filterung, Sortierung, Echtzeit-Updates, TDM-Lizenzprüfung und Volltext-Links."
     },
     "license": {
-      "en": "✅ Freely accessible | ⚠️ License required for Metadata Plus",
-      "de": "✅ Frei zugänglich | ⚠️ Lizenz für Metadata Plus erforderlich"
+      "en": "✅ Freely accessible | ⚠️ License required for [Metadata Plus](https://www.crossref.org/services/metadata-retrieval/metadata-plus/)",
+      "de": "✅ Frei zugänglich | ⚠️ Lizenz für [Metadata Plus](https://www.crossref.org/services/metadata-retrieval/metadata-plus/) erforderlich"
     },
     "contentFormats": {
       "en": "REST API (JSON) for selective queries | XML API (DOI and metadata queries) | Event Data API (events referencing DOIs in patents, social media, Wikipedia) | Metadata dumps (complete corpus as annual JSONL packages)",
-      "de": "REST API (JSON) für gezielte Abfragen | XML API (DOI- und Metadatenabfragen) | Event Data API (Ereignisse mit DOI-Bezug aus Patenten, sozialen Medien, Wikipedia) | Metadaten-Dumps (vollständiges Korpus als jährliche JSONL-Pakete)"
+      "de": "REST API (JSON) für selektive Abfragen inkl. Filter, Sortierung, Updates in Echtzeit, TDM-Lizenz-Sreening, Volltext-Link | XML API (DOI- und Metadatenabfragen) | Event Data API (liefert Ereignisse, bei denen auf wissenschaftliche Arbeiten mit DOI verwiesen wird, wie etwa in Patenten, Social Media oder Wikipedia) | Dumps (vollständige Crossref‑Metadaten-Korpus als jährliche JSONL- Datenpakete, ohne Such‑/Filtermechanismen und ohne Incremental Updates) "
     },
     "limitations": {
       "en": "No explicit rate limits; responsible use expected. Not intended for bulk downloading.",
@@ -65,8 +65,15 @@
     "documentation": [
       {
         "label": {
-          "en": "REST API (Swagger)",
-          "de": "REST API (Swagger)"
+          "en": "REST API",
+          "de": "REST API"
+        },
+        "url": "https://www.crossref.org/documentation/retrieve-metadata/rest-api/"
+      },
+      {
+        "label": {
+          "en": "OpenAPI/Swagger",
+          "de": "OpenAPI/Swagger"
         },
         "url": "https://api.crossref.org/swagger-ui/index.html"
       },
@@ -75,35 +82,35 @@
           "en": "GitHub Quickstart",
           "de": "GitHub Quickstart"
         },
-        "url": "https://github.com/CrossRef/rest-api-doc"
+        "url": "https://docs.github.com/en/rest/quickstart?apiVersion=2022-11-28"
       },
       {
         "label": {
           "en": "XML API",
           "de": "XML API"
         },
-        "url": "https://www.crossref.org/documentation/retrieve-metadata/xml-based-queries/"
+        "url": "https://www.crossref.org/documentation/retrieve-metadata/xml-api/"
       },
       {
         "label": {
           "en": "Metadata Dumps",
           "de": "Metadaten-Dumps"
         },
-        "url": "https://www.crossref.org/documentation/retrieve-metadata/bulk-metadata-download/"
+        "url": "https://www.crossref.org/learning/public-data-file/"
       },
       {
         "label": {
           "en": "Event Data API",
           "de": "Event Data API"
         },
-        "url": "https://www.eventdata.crossref.org/guide/"
+        "url": "https://www.crossref.org/documentation/event-data/"
       }
     ],
     "howToRequestAccess": {
       "en": "No registration or API key required.",
       "de": "Keine Registrierung oder API-Schlüssel erforderlich."
     },
-    "lastSighted": "",
+    "lastSighted": "2026-04-17",
     "lastModified": "2026-03-31"
   },
   {
@@ -132,28 +139,28 @@
           "en": "REST API",
           "de": "REST API"
         },
-        "url": "https://www.doabooks.org/en/article/api-search-doab"
+        "url": "https://directory.doabooks.org/rest/search"
       },
       {
         "label": {
           "en": "API Documentation",
           "de": "API-Dokumentation"
         },
-        "url": "https://directory.doabooks.org/rest/"
+        "url": "https://doabooks.org/en/article/api-search-doab"
       },
       {
         "label": {
           "en": "OAPEN",
           "de": "OAPEN"
         },
-        "url": "https://oapen.org/"
+        "url": "https://library.oapen.org/"
       }
     ],
     "howToRequestAccess": {
       "en": "No registration or API key required.",
       "de": "Keine Registrierung oder API-Schlüssel erforderlich."
     },
-    "lastSighted": "",
+    "lastSighted": "2026-04-17",
     "lastModified": "2026-03-31"
   },
   {
@@ -169,8 +176,8 @@
       "de": "✅ Frei zugänglich | Metadaten frei nachnutzbar | Keine Volltexte enthalten"
     },
     "contentFormats": {
-      "en": "REST API (JSON) for metadata GET requests | Article and journal metadata (title, ISSN/EISSN, license, full-text URL, abstract, keywords, publisher) | Elasticsearch-based query syntax (e.g., bibjson.journal.title) | Use cases: OA corpus creation, TDM license screening, OA landscape analysis",
-      "de": "REST API (JSON) für Metadaten-GET-Anfragen | Artikel- und Zeitschriftenmetadaten (Titel, ISSN/EISSN, Lizenz, Volltext-URL, Abstract, Schlagwörter, Verlag) | Elasticsearch-basierte Abfragesyntax (z.B. bibjson.journal.title) | Anwendungsfälle: OA-Korpuserstellung, TDM-Lizenzprüfung, OA-Landschaftsanalyse"
+      "en": "REST API (JSON) for metadata GET requests | Article and journal metadata (title, ISSN/EISSN, license, full-text URL, abstract, keywords, publisher etc.) | Elasticsearch-based query syntax (e.g., bibjson.journal.title) | Use cases: OA corpus creation, TDM license screening, OA landscape analysis",
+      "de": "REST API (JSON) für Metadaten-GET-Anfragen | Artikel- und Zeitschriftenmetadaten (Titel, ISSN/EISSN, Lizenz, Volltext-URL, Abstract, Schlagwörter, Verlag usw.) | Elasticsearch‑basierte Suchsyntax möglich (z. B. Feldsuche via bibjson.journal.title). | Anwendungsfälle: OA-Korpuserstellung, TDM-Lizenzprüfung, OA-Landschaftsanalyse"
     },
     "limitations": {
       "en": "No explicit rate limits; responsible use expected.",
@@ -189,18 +196,18 @@
           "en": "DOAJ Blog (API News)",
           "de": "DOAJ Blog (API-Neuigkeiten)"
         },
-        "url": "https://blog.doaj.org/"
+        "url": "https://blog.doaj.org/?s=api"
       }
     ],
     "howToRequestAccess": {
       "en": "No registration or API key required. API keys issued only to publishers who deposit metadata with DOAJ.",
       "de": "Keine Registrierung oder API-Schlüssel erforderlich. API-Schlüssel werden nur an Verlage vergeben, die Metadaten bei DOAJ einreichen."
     },
-    "lastSighted": "",
+    "lastSighted": "2026-04-17",
     "lastModified": "2026-03-31"
   },
   {
-    "name": "Europe PMC",
+    "name": "Europe PMC (European Bioinformatics Institute mit EU Forschungsförderern)",
     "url": "https://europepmc.org/RestfulWebService",
     "endpoint": "https://www.ebi.ac.uk/europepmc/webservices/rest/",
     "description": {
@@ -225,21 +232,28 @@
           "en": "EBI Search (Web)",
           "de": "EBI Search (Web)"
         },
-        "url": "https://www.ebi.ac.uk/ebisearch/"
+        "url": "https://www.ebi.ac.uk/ebisearch/about"
       },
       {
         "label": {
           "en": "EBI Search RESTful API",
           "de": "EBI Search RESTful API"
         },
-        "url": "https://www.ebi.ac.uk/ebisearch/documentation"
+        "url": "https://europepmc.org/RestfulWebService"
+      },
+      {
+        "label": {
+          "en": "EBI Search (Webinar)",
+          "de": "EBI Search (Webinar)"
+        },
+        "url": "https://www.ebi.ac.uk/training/online/courses/embl-ebi-programmatically/ebi-search-programmatically/"
       },
       {
         "label": {
           "en": "SOAP Web Service Guide",
           "de": "SOAP Web Service Guide"
         },
-        "url": "https://europepmc.org/RestfulWebService"
+        "url": "https://europepmc.org/docs/EBI_Europe_PMC_Web_Service_Reference.pdf"
       },
       {
         "label": {
@@ -253,8 +267,8 @@
       "en": "No registration or API key required.",
       "de": "Keine Registrierung oder API-Schlüssel erforderlich."
     },
-    "lastSighted": "",
-    "lastModified": "2026-03-31"
+    "lastSighted": "2026-04-17",
+    "lastModified": "2026-04-17"
   },
   {
     "name": "Europeana APIs",
@@ -265,16 +279,16 @@
       "de": "Zugang zu reichhaltigen Kulturdaten (Bilder, Texte, Audio, Video, 3D-Objekte) von Tausenden europäischen Institutionen. Enthält Such-, Abruf- und Thumbnail-APIs."
     },
     "license": {
-      "en": "⚠️ API key required | Data under various open licenses (CC BY",
-      "de": "⚠️ API-Schlüssel erforderlich | Daten unter verschiedenen offenen Lizenzen (CC BY"
+      "en": "Metadata: CC0 (free reuse, no restrictions) | Content items: various open licenses per item (Public Domain, CC0, CC BY, CC BY-SA, etc.)",
+      "de": "Metadaten: CC0 (freie Nachnutzung, keine Einschränkungen) | Inhaltsobjekte: verschiedene offene Lizenzen je nach Objekt (Public Domain, CC0, CC BY, CC BY-SA usw.)"
     },
     "contentFormats": {
-      "en": "CC0",
-      "de": "CC0 usw.)"
+      "en": "REST API (JSON, JSON-LD) | Search API | Record API | Thumbnail API | IIIF Manifest API",
+      "de": "REST API (JSON, JSON-LD) | Search API | Record API | Thumbnail API | IIIF Manifest API"
     },
     "limitations": {
-      "en": "etc.)",
-      "de": "REST API (JSON, JSON-LD) | Search API | Record API | Thumbnail API | IIIF Manifest API"
+      "en": "API key required (free). Since May 2025: Personal key (lower rate limit, for individual use) and Project key (higher rate limit, for services/applications). Exact limits depend on key type; see documentation.",
+      "de": "API-Schlüssel erforderlich (kostenlos). Seit Mai 2025: Personal Key (niedrigeres Limit, für Einzelpersonen) und Project Key (höheres Limit, für Dienste/Anwendungen). Genaue Limits je nach Schlüsseltyp; siehe Dokumentation."
     },
     "documentation": [
       {
@@ -293,11 +307,11 @@
       }
     ],
     "howToRequestAccess": {
-      "en": "10,000 API calls/day (free tier)",
-      "de": "Europeana API-Dokumentation | API-Konsole"
+      "en": "Register for a free Europeana account at europeana.eu, then request an API key. Personal keys are available immediately; Project keys require additional information about your use case.",
+      "de": "Kostenloses Europeana-Konto unter europeana.eu registrieren, dann API-Schlüssel beantragen. Personal Keys sind sofort verfügbar; Project Keys erfordern Angaben zum Verwendungszweck."
     },
-    "lastSighted": "Europeana API Documentation | API Console",
-    "lastModified": "2026-03-31"
+    "lastSighted": "2026-04-17",
+    "lastModified": "2026-04-17"
   },
   {
     "name": "JSTOR Text Analysis Support",
