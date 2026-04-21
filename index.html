@@ -284,6 +284,22 @@
 
     .doc-link:hover { background: #bfdbfe; text-decoration: underline; }
 
+    /* demo link button */
+    .demo-link {
+      flex-shrink: 0;
+      font-size: .8rem;
+      color: #16a34a;
+      text-decoration: none;
+      padding: 4px 10px;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      background: #dcfce7;
+      white-space: nowrap;
+      transition: background .15s;
+    }
+
+    .demo-link:hover { background: #bbf7d0; }
+
     .last-modified {
       font-size: .8rem;
       color: var(--muted);
@@ -419,6 +435,7 @@
       <div class="modal-header-left">
         <span class="modal-title" id="modal-title"></span>
         <a class="card-link" id="modal-docs-link" href="#" target="_blank" rel="noopener">Docs ↗</a>
+        <a class="demo-link" id="modal-demo-link" href="#" target="_blank" rel="noopener" style="display:none">Demo ↗</a>
       </div>
       <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
     </div>
@@ -501,6 +518,7 @@ function buildCard(api) {
     <div class="card-header">
       <span class="card-title">${api.name}</span>
       <a class="card-link" href="${api.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Docs ↗</a>
+      ${api.demo ? `<a class="demo-link" href="${api.demo}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Demo ↗</a>` : ''}
     </div>
     <div class="card-body">
       <p class="description">${desc}</p>
@@ -539,6 +557,14 @@ function openModal(name) {
   document.getElementById('modal-title').textContent = api.name;
   const docsLink = document.getElementById('modal-docs-link');
   docsLink.href = api.url;
+
+  const demoLink = document.getElementById('modal-demo-link');
+  if (api.demo) {
+    demoLink.href = api.demo;
+    demoLink.style.display = '';
+  } else {
+    demoLink.style.display = 'none';
+  }
 
   document.getElementById('modal-body').innerHTML = `
     <p class="description">${desc}</p>

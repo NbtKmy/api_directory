@@ -55,7 +55,7 @@
       "de": "✅ Frei zugänglich | ⚠️ Lizenz für [Metadata Plus](https://www.crossref.org/services/metadata-retrieval/metadata-plus/) erforderlich"
     },
     "contentFormats": {
-      "en": "REST API (JSON) for selective queries | XML API (DOI and metadata queries) | Event Data API (events referencing DOIs in patents, social media, Wikipedia) | Metadata dumps (complete corpus as annual JSONL packages)",
+      "en": "REST API (JSON) for selective queries incl. filters, sorting, real-time updates, TDM license screening, and full-text links | XML API (DOI and metadata queries) | Event Data API (events referencing DOIs in patents, social media, Wikipedia) | Metadata dumps (complete corpus as annual JSONL packages, without search/filter mechanisms and without incremental updates)",
       "de": "REST API (JSON) für selektive Abfragen inkl. Filter, Sortierung, Updates in Echtzeit, TDM-Lizenz-Sreening, Volltext-Link | XML API (DOI- und Metadatenabfragen) | Event Data API (liefert Ereignisse, bei denen auf wissenschaftliche Arbeiten mit DOI verwiesen wird, wie etwa in Patenten, Social Media oder Wikipedia) | Dumps (vollständige Crossref‑Metadaten-Korpus als jährliche JSONL- Datenpakete, ohne Such‑/Filtermechanismen und ohne Incremental Updates) "
     },
     "limitations": {
@@ -326,12 +326,12 @@
       "de": "✅ Nicht-kommerzielle Forschung"
     },
     "contentFormats": {
-      "en": "teaching",
-      "de": "Lehre und Lernen | ❌ Training von KI-Modellen Dritter nicht gestattet"
+      "en": "No classic real-time API | Metadata: JSONL dump (JSTOR Bibliographic Metadata File) | Full texts: individual datasets on request | Data filterable with Python",
+      "de": "Keine klassische Echtzeit-API | Metadaten: JSONL-Dump (JSTOR Bibliographic Metadata File) | Volltext: individuelle Datensätze auf Anfrage | Daten mit Python filterbar"
     },
     "limitations": {
-      "en": "and learning | ❌ Training third-party AI models not permitted",
-      "de": "Keine klassische Echtzeit-API | Metadaten: JSONL-Dump (JSTOR Bibliographic Metadata File) | Volltext: individuelle Datensätze auf Anfrage | Daten mit Python filterbar"
+      "en": "Teaching and learning | ❌ Training third-party AI models not permitted | Maximum dataset size: 1.5 million items",
+      "de": "Lehre und Lernen | ❌ Training von KI-Modellen Dritter nicht gestattet | Maximale Dataset‑Grösse: 1.5 Millionen Items "
     },
     "documentation": [
       {
@@ -339,22 +339,22 @@
           "en": "Working with JSTOR Bibliographic Metadata",
           "de": "Arbeiten mit JSTOR-Bibliografiemetadaten"
         },
-        "url": "https://support.jstor.org/hc/en-us/articles/360051024991"
+        "url": "https://support.jstor.org/hc/en-us/articles/32485272590487-JSTOR-Text-Analysis-Support-Working-with-JSTOR-Bibliographic-Metadata"
       },
       {
         "label": {
           "en": "Working with JSTOR Full-Text Datasets",
           "de": "Arbeiten mit JSTOR-Volltextdatensätzen"
         },
-        "url": "https://support.jstor.org/hc/en-us/articles/360051941012"
+        "url": "https://support.jstor.org/hc/en-us/articles/32487330092695-JSTOR-Text-Analysis-Support-Working-with-JSTOR-Full-Text-Datasets"
       }
     ],
     "howToRequestAccess": {
-      "en": "Maximum dataset size: 1.5 million items",
-      "de": "5 Millionen Einträge"
+      "en": "Request a dataset via JSTOR account | JSTOR Text Analysis: [Getting Started](https://support.jstor.org/hc/en-us/articles/32479181127575-JSTOR-Text-Analysis-Support-Getting-Started). Each request must be approved.",
+      "de": "Data Set Request mit JSTOR Konto beantragen | JSTOR Text Analysis: [Getting Started](https://support.jstor.org/hc/en-us/articles/32479181127575-JSTOR-Text-Analysis-Support-Getting-Started). Jeder Antrag muss genehmigt werden."
     },
-    "lastSighted": "Working with JSTOR Bibliographic Metadata | Working with JSTOR Full-Text Datasets",
-    "lastModified": "2026-03-31"
+    "lastSighted": "2026-04-21",
+    "lastModified": "2026-04-21"
   },
   {
     "name": "GBIF API",
@@ -396,8 +396,9 @@
       "en": "Most queries: no authentication | POST/PUT/DELETE: GBIF account required (HTTP Basic Auth)",
       "de": "Meiste Abfragen: keine Authentifizierung | POST/PUT/DELETE: GBIF-Konto erforderlich (HTTP Basic Auth)"
     },
-    "lastSighted": "",
-    "lastModified": "2026-03-31"
+    "demo": "marimo_examples/gbif_example.html",
+    "lastSighted": "2026-04-21",
+    "lastModified": "2026-04-21"
   },
   {
     "name": "Google Books API",
@@ -439,7 +440,7 @@
       "en": "API key required for public data (via Google API Console) | OAuth 2.0 required for private library operations",
       "de": "API-Schlüssel für öffentliche Daten erforderlich (über Google API Console) | OAuth 2.0 für private Bücherregale erforderlich"
     },
-    "lastSighted": "",
+    "lastSighted": "2026-04-21",
     "lastModified": "2026-03-31"
   },
   {
@@ -496,28 +497,28 @@
       "en": "Register at https://impresso-project.ch/datalab/ to obtain an access token. Authenticate via impresso.connect() in the Python library.",
       "de": "Registrierung unter https://impresso-project.ch/datalab/ zum Erhalt eines Zugangs-Tokens. Authentifizierung über impresso.connect() in der Python-Bibliothek."
     },
-    "lastSighted": "",
-    "lastModified": "2026-03-31"
+    "lastSighted": "2026-04-21",
+    "lastModified": "2026-04-21"
   },
   {
-    "name": "Linked Data Service with DNB SPARQL Service",
-    "url": "https://www.dnb.de/EN/Professionell/Metadatendienste/Datenbezug/LDS/lds.html",
+    "name": "DNB Metadatendienste",
+    "url": "https://www.dnb.de/DE/Professionell/Metadatendienste/metadatendienste_node.html",
     "endpoint": "SRU: https://services.dnb.de/sru/dnb | OAI-PMH: https://services.dnb.de/oai/repository | SPARQL (BETA): https://data.dnb.de/sparql",
     "description": {
-      "en": "German National Library national bibliographic data and GND authority data in RDF format, contributing to the global semantic web.",
-      "de": "Nationalbibliografische Daten und GND-Normdaten der Deutschen Nationalbibliothek im RDF-Format als Beitrag zum globalen Semantic Web."
+      "en": "Programmatic access to national bibliographic data and GND authority data from the German National Library (DNB). Offers multiple interfaces: SRU (catalog search), OAI-PMH (metadata harvesting), SPARQL BETA (linked data queries), and Data Shop (RDF bulk downloads).",
+      "de": "Programmatischer Zugang zu nationalbibliografischen Daten und GND-Normdaten der Deutschen Nationalbibliothek (DNB). Bietet mehrere Schnittstellen: SRU (Katalogsuche), OAI-PMH (Metadaten-Harvesting), SPARQL BETA (Linked-Data-Abfragen) und Data Shop (RDF-Massendownloads)."
     },
     "license": {
-      "en": "CC BY 4.0",
-      "de": "CC BY 4.0"
+      "en": "CC0",
+      "de": "CC0"
     },
     "contentFormats": {
       "en": "RDF serializations: Turtle, RDF/XML, JSON-LD (UTF-8 NFD) | SRU interface (standard search) | OAI-PMH interface (metadata harvesting) | DNB SPARQL Service BETA (available since September 2025) | Data Shop (RDF downloads)",
       "de": "RDF-Serialisierungen: Turtle, RDF/XML, JSON-LD (UTF-8 NFD) | SRU-Schnittstelle (Standardsuche) | OAI-PMH-Schnittstelle (Metadaten-Harvesting) | DNB SPARQL Service BETA (verfügbar seit September 2025) | Data Shop (RDF-Downloads)"
     },
     "limitations": {
-      "en": "Rate limits not specified; contact metadatendienste@dnb.de",
-      "de": "Anfragenlimits nicht angegeben; Kontakt: metadatendienste@dnb.de"
+      "en": "Rate limits not specified",
+      "de": "Anfragenlimits nicht angegeben"
     },
     "documentation": [
       {
@@ -529,25 +530,25 @@
       },
       {
         "label": {
-          "en": "Business Model",
-          "de": "Geschäftsmodell"
+          "en": "SRU interface",
+          "de": "SRU-Schnittstelle"
         },
-        "url": "https://www.dnb.de/EN/Professionell/Metadatendienste/Datenbezug/LDS/businessmodel.html"
+        "url": "https://www.dnb.de/EN/Professionell/Metadatendienste/Datenbezug/SRU/sru_node.html"
       },
       {
         "label": {
-          "en": "SPARQL Service",
-          "de": "SPARQL Service"
+          "en": "Linked Data Service with DNB SPARQL Service (BETA)",
+          "de": "Linked-Data-Service mit DNB SPARQL Service (BETA)"
         },
-        "url": "https://data.dnb.de/sparql"
+        "url": "https://www.dnb.de/EN/Professionell/Metadatendienste/Datenbezug/LDS/lds_node.html"
       }
     ],
     "howToRequestAccess": {
-      "en": "No authentication specified for read access. Contact: metadatendienste@dnb.de",
-      "de": "Keine Authentifizierung für Lesezugriff angegeben. Kontakt: metadatendienste@dnb.de"
+      "en": "No authentication specified for read access",
+      "de": "Keine Authentifizierung für Lesezugriff angegeben"
     },
-    "lastSighted": "",
-    "lastModified": "2026-03-31"
+    "lastSighted": "2026-04-21",
+    "lastModified": "2026-04-21"
   },
   {
     "name": "Nominatim",
@@ -589,8 +590,8 @@
       "en": "No API key required. Must comply with Nominatim Usage Policy. Self-hosting encouraged for high-volume use.",
       "de": "Kein API-Schlüssel erforderlich. Einhaltung der Nominatim-Nutzungsrichtlinien erforderlich. Self-Hosting für hohe Anfragevolumen empfohlen."
     },
-    "lastSighted": "",
-    "lastModified": "2026-03-31"
+    "lastSighted": "2026-04-21",
+    "lastModified": "2026-04-21"
   },
   {
     "name": "OpenAlex",
@@ -615,13 +616,6 @@
     "documentation": [
       {
         "label": {
-          "en": "OpenAlex Web Interface",
-          "de": "OpenAlex Weboberfläche"
-        },
-        "url": "https://openalex.org/"
-      },
-      {
-        "label": {
           "en": "OpenAlex API Reference",
           "de": "OpenAlex API-Referenz"
         },
@@ -632,48 +626,34 @@
           "en": "Comparison with other scholarly data sources",
           "de": "Vergleich mit anderen wissenschaftlichen Datenquellen"
         },
-        "url": "https://openalex.org/about"
+        "url": "https://openalex.org/about#comparison"
       },
       {
         "label": {
           "en": "Pricing and Rate Limits",
           "de": "Preise und Anfragenlimits"
         },
-        "url": "https://openalex.org/pricing"
-      },
-      {
-        "label": {
-          "en": "Tutorials",
-          "de": "Tutorials"
-        },
-        "url": "https://docs.openalex.org/tutorials"
-      },
-      {
-        "label": {
-          "en": "Blog",
-          "de": "Blog"
-        },
-        "url": "https://blog.openalex.org/"
+        "url": "https://developers.openalex.org/guides/authentication"
       }
     ],
     "howToRequestAccess": {
       "en": "Free API key required. See: https://docs.openalex.org/how-to-use-the-api/api-overview",
       "de": "Kostenloser API-Schlüssel erforderlich. Siehe: https://docs.openalex.org/how-to-use-the-api/api-overview"
     },
-    "lastSighted": "",
-    "lastModified": "2026-03-31"
+    "lastSighted": "2026-04-21",
+    "lastModified": "2026-04-21"
   },
   {
-    "name": "Open Parl Data API",
-    "url": "https://opendata.ch/news/test-our-open-parl-data-api/",
-    "endpoint": "https://api.openparliament.ch/ (tentative)",
+    "name": "OpenParlData API",
+    "url": "https://api.openparldata.ch/documentation",
+    "endpoint": "https://api.openparldata.ch",
     "description": {
       "en": "Harmonized parliamentary data from 74 national, cantonal and municipal parliaments across 46 cities, 26 cantons, and 2 countries (Switzerland and Liechtenstein). Covers motions, votes, members, and sessions.",
       "de": "Harmonisierte Parlamentsdaten aus 74 nationalen, kantonalen und kommunalen Parlamenten in 46 Städten, 26 Kantonen und 2 Ländern (Schweiz und Liechtenstein). Umfasst Motionen, Abstimmungen, Mitglieder und Sitzungen."
     },
     "license": {
-      "en": "✅ Open data (opendata.ch)",
-      "de": "✅ Offene Daten (opendata.ch)"
+      "en": "Creative Commons Licence CC BY 4.0",
+      "de": "Creative Commons Licence CC BY 4.0"
     },
     "contentFormats": {
       "en": "REST API (JSON) | Data: parliamentary motions, votes, members, sessions | Coverage: national, cantonal, and municipal parliaments in CH/LI",
@@ -686,25 +666,18 @@
     "documentation": [
       {
         "label": {
-          "en": "opendata.ch announcement",
-          "de": "opendata.ch-Ankündigung"
+          "en": "OpenParlData.ch – API for harmonized Swiss parliamentary data",
+          "de": "OpenParlData.ch – API for harmonized Swiss parliamentary data"
         },
-        "url": "https://opendata.ch/news/test-our-open-parl-data-api/"
-      },
-      {
-        "label": {
-          "en": "Project documentation",
-          "de": "Projektdokumentation"
-        },
-        "url": "https://opendata.ch/projects/open-parl-data/"
+        "url": "https://api.openparldata.ch/documentation"
       }
     ],
     "howToRequestAccess": {
-      "en": "Contact opendata.ch for access; API may still be in testing phase (as of August 2025)",
-      "de": "opendata.ch für Zugang kontaktieren; API befindet sich möglicherweise noch in der Testphase (Stand: August 2025)"
+      "en": "No API key required",
+      "de": "Kein API-Schlüssel erforderlich"
     },
-    "lastSighted": "",
-    "lastModified": "2026-03-31"
+    "lastSighted": "2026-04-21",
+    "lastModified": "2026-04-21"
   },
   {
     "name": "ORCID API",
@@ -746,7 +719,7 @@
       "en": "Register application via ORCID Developer Tools (email verification required). Test on sandbox (sandbox.orcid.org) before production.",
       "de": "Anwendung über ORCID Developer Tools registrieren (E-Mail-Verifizierung erforderlich). Vor dem Produktionsbetrieb auf der Sandbox (sandbox.orcid.org) testen."
     },
-    "lastSighted": "",
+    "lastSighted": "2024-04-21",
     "lastModified": "2026-03-31"
   },
   {
@@ -779,6 +752,13 @@
       },
       {
         "label": {
+          "en": "Overpass API User's Manual",
+          "de": "Overpass API User's Manual"
+        },
+        "url": "https://dev.overpass-api.de/overpass-doc/en/"
+      },
+      {
+        "label": {
           "en": "Overpass Turbo (interactive)",
           "de": "Overpass Turbo (interaktiv)"
         },
@@ -786,18 +766,82 @@
       },
       {
         "label": {
-          "en": "Overpass API Documentation",
-          "de": "Overpass API-Dokumentation"
+          "en": "Overpass QL (Query Language) Documentation",
+          "de": "Overpass QL (Abfragesprache) Dokumentation"
         },
-        "url": "https://dev.overpass-api.de/overpass-doc/en/"
+        "url": "https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL"
       }
     ],
     "howToRequestAccess": {
       "en": "No API key required for public instances.",
       "de": "Kein API-Schlüssel für öffentliche Instanzen erforderlich."
     },
-    "lastSighted": "",
-    "lastModified": "2026-03-31"
+    "lastSighted": "2026-04-21",
+    "lastModified": "2026-04-21"
+  },
+  {
+    "name": "Public Library of Science (PLoS)",
+    "url": "https://api.plos.org/",
+    "endpoint": "Search API: http://api.plos.org/search | TDM Bulk Download (JATS XML ZIP): https://allof.plos.org/allofplos.zip | Individual JATS XML: http://journals.plos.org/plosone/article/file?id={DOI}&type=manuscript | Individual PDF: http://journals.plos.org/plosone/article/file?id={DOI}&type=printable",
+    "description": {
+      "en": "Metadata and article full texts (>200,000 articles) from all 7 PLOS journals (excl. figures and supplemental data) in JATS-XML. Metadata incl. abstracts available via the PLoS Search API (Solr-based; fields: author, title, abstract, journal, year, DOI, etc.). Metadata and abstracts also accessible via PubMed Central.",
+      "de": "Metadaten und Artikelinhalte (>200.000 Artikel) zu allen 7 PLOS-Zeitschriften (ohne Figures/Supplemental Data) in JATS-XML. Metadaten inkl. Abstracts über die PLoS Search API (Solr-basiert; Endpunkte u. a.: Autor, Titel, Abstract, Journal, Jahr, DOI). Metadaten und Abstracts auch über PubMed Central abrufbar."
+    },
+    "license": {
+      "en": "✅ Freely accessible; CC BY (Text mining allowed independent of UZH-ZB license)",
+      "de": "✅ Frei zugänglich; CC BY (Text-Mining unabhängig von UZH-ZB-Lizenz möglich)"
+    },
+    "contentFormats": {
+      "en": "REST API (XML default, JSON via wt=json) based on Apache Solr 4.1.0 | Search fields: title, abstract, body, introduction, materials_and_methods, results_and_discussion, conclusions, everything (all text) | Metadata: DOI (id), publication_date, journal, volume, issue, article_type, subject, author, editor, ISSN | Usage metrics: counter_total_all, counter_total_month | Article types: research articles, reviews, editorials, essays, perspectives, corrections, and more",
+      "de": "REST API (Standard XML, JSON über wt=json) basierend auf Apache Solr 4.1.0 | Suchfelder: title, abstract, body, introduction, materials_and_methods, results_and_discussion, conclusions, everything (gesamter Text) | Metadaten: DOI (id), publication_date, journal, volume, issue, article_type, subject, author, editor, ISSN | Nutzungsmetriken: counter_total_all, counter_total_month | Artikeltypen: Forschungsartikel, Reviews, Editorials, Essays, Perspectives, Korrekturen u. a."
+    },
+    "limitations": {
+      "en": "Search API: 7,200 requests/day | 300 requests/hour | 10 requests/minute | Max 5 concurrent connections per IP | Recommended max rows per request: 100 | Recommended wait: 5 seconds between requests | For high-volume use, contact api@plos.org | Bulk downloading individual article files discouraged — use TDM bulk download instead ([api.plos.org](https://api.plos.org/))",
+      "de": "Search API: 7.200 Anfragen/Tag | 300 Anfragen/Stunde | 10 Anfragen/Minute | Max. 5 gleichzeitige Verbindungen pro IP | Empfohlene maximale Zeilenanzahl pro Anfrage: 100 | Empfohlene Pause: 5 Sekunden zwischen Anfragen | Für intensive Nutzung: api@plos.org kontaktieren | Massendownload einzelner Artikel-URLs nicht empfohlen — stattdessen TDM-Bulk-Download verwenden ([api.plos.org](https://api.plos.org/))"
+    },
+    "documentation": [
+      {
+        "label": {
+          "en": "PLOS API Overview",
+          "de": "PLOS API Übersicht"
+        },
+        "url": "https://api.plos.org/"
+      },
+      {
+        "label": {
+          "en": "Solr Search Fields Reference",
+          "de": "Solr Suchfelder-Referenz"
+        },
+        "url": "https://api.plos.org/solr/search-fields"
+      },
+      {
+        "label": {
+          "en": "Solr Search Examples",
+          "de": "Solr Suchanfragen-Beispiele"
+        },
+        "url": "https://api.plos.org/solr/examples"
+      },
+      {
+        "label": {
+          "en": "Text and Data Mining",
+          "de": "Text- und Datamining"
+        },
+        "url": "https://api.plos.org/text-and-data-mining.html"
+      },
+      {
+        "label": {
+          "en": "API Display Policy",
+          "de": "API-Darstellungsrichtlinien"
+        },
+        "url": "https://api.plos.org/api-display-policy"
+      }
+    ],
+    "howToRequestAccess": {
+      "en": "No API key required. Rate limits apply per IP address. Results must attribute data source: display 'Data Provided by PLOS' near results. For branding use, contact community@plos.org.",
+      "de": "Kein API-Schlüssel erforderlich. Anfragenlimits gelten pro IP-Adresse. Ergebnisse müssen die Datenquelle ausweisen: 'Data Provided by PLOS' in der Nähe der Daten anzeigen. Für Branding-Nutzung: community@plos.org kontaktieren."
+    },
+    "lastSighted": "2026-04-21",
+    "lastModified": "2026-04-21"
   },
   {
     "name": "PubMed Central",
@@ -832,7 +876,7 @@
           "en": "E-Utilities Guide",
           "de": "E-Utilities Guide"
         },
-        "url": "https://www.ncbi.nlm.nih.gov/books/NBK25499/"
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK25501/"
       },
       {
         "label": {
@@ -846,18 +890,18 @@
           "en": "PMC FTP Service",
           "de": "PMC FTP-Dienst"
         },
-        "url": "https://ftp.ncbi.nlm.nih.gov/pub/pmc/"
+        "url": "https://pmc.ncbi.nlm.nih.gov/tools/ftp/"
       }
     ],
     "howToRequestAccess": {
       "en": "No API key required, but NCBI requires clients to provide a tool name and email address.",
       "de": "Kein API-Schlüssel erforderlich, aber NCBI verlangt Angabe von Tool-Name und E-Mail-Adresse."
     },
-    "lastSighted": "",
-    "lastModified": "2026-03-31"
+    "lastSighted": "2026-04-21",
+    "lastModified": "2026-04-21"
   },
   {
-    "name": "Semantic Scholar",
+    "name": "Semantic Scholar (Allen Institute for AI)",
     "url": "https://www.semanticscholar.org/product/api",
     "endpoint": "https://api.semanticscholar.org/",
     "description": {
@@ -866,7 +910,7 @@
     },
     "license": {
       "en": "✅ Freely accessible (no CC license) | ⚠️ API usage governed by own license agreement",
-      "de": "✅ Frei zugänglich (keine CC-Lizenz) | ⚠️ API-Nutzung unterliegt eigenem Lizenzvertrag"
+      "de": "✅ Frei zugänglich (keine CC-Lizenz) | ⚠️ ️Keine UZH-ZB-Lizenz vorhanden (Die API‑Nutzung unterliegt einem eigenen [Lizenzvertrag](https://www.semanticscholar.org/product/api/license))"
     },
     "contentFormats": {
       "en": "REST API (JSON) | Academic Graph API | Recommendations API | Datasets API (bulk downloads)",
@@ -879,17 +923,17 @@
     "documentation": [
       {
         "label": {
-          "en": "Semantic Scholar API Documentation",
-          "de": "Semantic Scholar API-Dokumentation"
+          "en": "Semantic Scholar API - Overview",
+          "de": "Semantic Scholar API - Overview"
         },
-        "url": "https://api.semanticscholar.org/api-docs/"
+        "url": "https://www.semanticscholar.org/product/api"
       },
       {
         "label": {
           "en": "Python Client Library",
           "de": "Python Client Library"
         },
-        "url": "https://github.com/allenai/semanticscholar"
+        "url": "https://semanticscholar.readthedocs.io/en/latest/overview.html"
       },
       {
         "label": {
@@ -903,11 +947,11 @@
       "en": "No API key required, but recommended. Individual license agreement required for use.",
       "de": "Kein API-Schlüssel erforderlich, aber empfohlen. Individueller Lizenzvertrag für die Nutzung erforderlich."
     },
-    "lastSighted": "",
-    "lastModified": "2026-03-31"
+    "lastSighted": "2026-04-21",
+    "lastModified": "2026-04-21"
   },
   {
-    "name": "Unpaywall",
+    "name": "Unpaywall (OurResearch)",
     "url": "https://unpaywall.org/products/api",
     "endpoint": "https://api.unpaywall.org/v2/",
     "description": {
@@ -919,12 +963,12 @@
       "de": "✅ Frei zugänglich"
     },
     "contentFormats": {
-      "en": "REST API (JSON) | DOI-based lookup | Title search (max 50 results/page) | Data dumps available for large-scale projects",
-      "de": "REST API (JSON) | DOI-basierte Abfrage | Titelsuche (max. 50 Ergebnisse/Seite) | Daten-Dumps für groß angelegte Projekte verfügbar"
+      "en": "REST API (JSON) | DOI-based lookup | Data dumps available for large-scale projects",
+      "de": "REST API (JSON) | DOI-basierte Abfrage | Daten-Dumps für groß angelegte Projekte verfügbar"
     },
     "limitations": {
       "en": "<100,000 calls/24 hours | Title search: max 50 results/page | Large-scale projects: use data dumps",
-      "de": "<100.000 Aufrufe/24 Stunden | Titelsuche: max. 50 Ergebnisse/Seite | Für groß angelegte Projekte: Daten-Dumps verwenden"
+      "de": "<100.000 Aufrufe/24 Stunden | Titelsuche: max. 50 Ergebnisse/Seite | Für gross angelegte Projekte: Daten-Dumps verwenden"
     },
     "documentation": [
       {
@@ -939,29 +983,29 @@
           "en": "Unpaywall Support Portal",
           "de": "Unpaywall Support-Portal"
         },
-        "url": "https://support.unpaywall.org/"
+        "url": "https://support.unpaywall.org/support/home"
       },
       {
         "label": {
-          "en": "How to use the title search API",
+          "en": "How do I use the title search API?",
           "de": "Verwendung der Titelsuche-API"
         },
-        "url": "https://unpaywall.org/products/api#title-search"
+        "url": "https://support.unpaywall.org/support/solutions/articles/44001977396"
       },
       {
         "label": {
           "en": "How Unpaywall is transforming Open Science",
-          "de": "Wie Unpaywall Open Science verändert"
+          "de": "Wie Unpaywall Open Science verändert (??notwendig??)"
         },
-        "url": "https://unpaywall.org/"
+        "url": "https://www.nature.com/articles/d41586-018-05968-3"
       }
     ],
     "howToRequestAccess": {
       "en": "No API key required. Requests must include an email address as URL parameter (e.g., ?email=you@example.com).",
       "de": "Kein API-Schlüssel erforderlich. Anfragen müssen eine E-Mail-Adresse als URL-Parameter enthalten (z.B. ?email=ihre@email.de)."
     },
-    "lastSighted": "",
-    "lastModified": "2026-03-31"
+    "lastSighted": "2026-04-21",
+    "lastModified": "2026-04-21"
   },
   {
     "name": "VIAF API",
@@ -1019,8 +1063,8 @@
       "de": "CC0 (Gemeinfrei)"
     },
     "contentFormats": {
-      "en": "SPARQL 1.1 | Output formats: JSON, XML, CSV, TSV, Turtle, N-Triples, JSON-LD | Interactive: https://query.wikidata.org/",
-      "de": "SPARQL 1.1 | Ausgabeformate: JSON, XML, CSV, TSV, Turtle, N-Triples, JSON-LD | Interaktiv: https://query.wikidata.org/"
+      "en": "SPARQL 1.1 | Output formats: JSON, XML, CSV, TSV, Turtle, N-Triples, JSON-LD | Interactive: [https://query.wikidata.org/](https://query.wikidata.org/)",
+      "de": "SPARQL 1.1 | Ausgabeformate: JSON, XML, CSV, TSV, Turtle, N-Triples, JSON-LD | Interaktiv: [https://query.wikidata.org/](https://query.wikidata.org/)"
     },
     "limitations": {
       "en": "60-second query timeout | Max 5 concurrent queries per IP | No bulk download via SPARQL (use Wikidata dumps instead)",
@@ -1053,8 +1097,8 @@
       "en": "No API key required.",
       "de": "Kein API-Schlüssel erforderlich."
     },
-    "lastSighted": "",
-    "lastModified": "2026-03-31"
+    "lastSighted": "2026-04-21",
+    "lastModified": "2026-04-21"
   },
   {
     "name": "opendata.swiss API",
@@ -1073,8 +1117,8 @@
       "de": "REST API (JSON) | CKAN Action API | Wichtige Endpunkte: package_search, package_show, organization_list, group_list, status_show | Antwort: JSON mit den Feldern help, success, result"
     },
     "limitations": {
-      "en": "Rate limits not specified.",
-      "de": "Anfragenlimits nicht angegeben."
+      "en": "Rate limits not specified. However, responsible use of the API is recommended.",
+      "de": "Anfragenlimits nicht angegeben. Jedoch wird empfohlen, die API verantwortungsbewusst zu nutzen."
     },
     "documentation": [
       {
@@ -1096,7 +1140,7 @@
       "en": "Read-only: no authentication required | Write operations (package_create, package_patch): API key required (available from user profile page in opendata.swiss backend)",
       "de": "Lesezugriff: keine Authentifizierung erforderlich | Schreiboperationen (package_create, package_patch): API-Schlüssel erforderlich (im Nutzerprofil des opendata.swiss-Backends abrufbar)"
     },
-    "lastSighted": "",
-    "lastModified": "2026-03-31"
+    "lastSighted": "2026-04-21",
+    "lastModified": "2026-04-21"
   }
 ]
