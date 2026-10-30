@@ -97,13 +97,6 @@
           "de": "Metadaten-Dumps"
         },
         "url": "https://www.crossref.org/learning/public-data-file/"
-      },
-      {
-        "label": {
-          "en": "Event Data API",
-          "de": "Event Data API"
-        },
-        "url": "https://www.crossref.org/documentation/event-data/"
       }
     ],
     "howToRequestAccess": {
