@@ -27,3 +27,9 @@ Temporary Items
 
 # CLAUDE
 CLAUDE.md
+
+# api-list-check: Berichte bleiben lokal
+reports/
+
+# Playwright-MCP legt Logs/Snapshots im Arbeitsverzeichnis ab
+.playwright-mcp/
