@@ -55,8 +55,8 @@
       "de": "✅ Frei zugänglich | ⚠️ Lizenz für [Metadata Plus](https://www.crossref.org/services/metadata-retrieval/metadata-plus/) erforderlich"
     },
     "contentFormats": {
-      "en": "REST API (JSON) for selective queries incl. filters, sorting, real-time updates, TDM license screening, and full-text links | XML API (DOI and metadata queries) | Event Data API (events referencing DOIs in patents, social media, Wikipedia) | Metadata dumps (complete corpus as annual JSONL packages, without search/filter mechanisms and without incremental updates)",
-      "de": "REST API (JSON) für selektive Abfragen inkl. Filter, Sortierung, Updates in Echtzeit, TDM-Lizenz-Sreening, Volltext-Link | XML API (DOI- und Metadatenabfragen) | Event Data API (liefert Ereignisse, bei denen auf wissenschaftliche Arbeiten mit DOI verwiesen wird, wie etwa in Patenten, Social Media oder Wikipedia) | Dumps (vollständige Crossref‑Metadaten-Korpus als jährliche JSONL- Datenpakete, ohne Such‑/Filtermechanismen und ohne Incremental Updates) "
+      "en": "REST API (JSON) for selective queries incl. filters, sorting, real-time updates, TDM license screening, and full-text links | XML API (DOI and metadata queries) | Metadata dumps (complete corpus as annual JSONL packages, without search/filter mechanisms and without incremental updates)",
+      "de": "REST API (JSON) für selektive Abfragen inkl. Filter, Sortierung, Updates in Echtzeit, TDM-Lizenz-Sreening, Volltext-Link | XML API (DOI- und Metadatenabfragen) | Dumps (vollständige Crossref‑Metadaten-Korpus als jährliche JSONL- Datenpakete, ohne Such‑/Filtermechanismen und ohne Incremental Updates) "
     },
     "limitations": {
       "en": "No explicit rate limits; responsible use expected. Not intended for bulk downloading.",
