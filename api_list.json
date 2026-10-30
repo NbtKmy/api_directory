@@ -1133,7 +1133,7 @@
       "en": "Read-only: no authentication required | Write operations (package_create, package_patch): API key required (available from user profile page in opendata.swiss backend)",
       "de": "Lesezugriff: keine Authentifizierung erforderlich | Schreiboperationen (package_create, package_patch): API-Schlüssel erforderlich (im Nutzerprofil des opendata.swiss-Backends abrufbar)"
     },
-    "lastSighted": "2026-04-21",
+    "lastSighted": "2026-10-30",
     "lastModified": "2026-04-21"
   }
 ]
