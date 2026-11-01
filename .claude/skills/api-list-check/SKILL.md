@@ -11,7 +11,8 @@ description: Monatliche Prüfung der API-Liste (api_list.json) auf tote oder ver
 
 - **Eindeutiges darf automatisch korrigiert werden, Inhaltliches nicht.** Eine URL, die dauerhaft (301/308) auf dieselbe Seite derselben Domain umzieht, ist eindeutig. Ob sich ein Rate-Limit geändert hat, ist eine Aussage, die ein Mensch bestätigen sollte – die Texte sind zweisprachig (en/de) und von Hand formuliert.
 - **Nichts committen oder pushen.** Das erledigt Nobu selbst. Der Bericht sagt, was zu committen ist.
-- **Nur `api_list.json` und `reports/` (lokal, per `.gitignore` ausgeschlossen) anfassen.** CSV-, DOCX-, XLSX-Dateien und `index.html` bleiben unberührt (`convert_to_excel.py` liest die DOCX-Dateien, nicht die JSON).
+- **Vor jeder Änderung an `api_list.json` ein Backup anlegen.** Das gilt für die automatischen Korrekturen (Schritt 4) ebenso wie für später freigegebene Textänderungen. Ablage: `backup/api_list_YYYYMM.json` (Monat der Prüfung; existiert die Datei schon, `-2` anhängen). Nie ein vorhandenes Backup überschreiben.
+- **Nur `api_list.json`, `reports/` und `backup/` anfassen.** `reports/` steht nicht mehr in `.gitignore`, weil Nobu die Berichte mit Kolleginnen und Kollegen teilt; ob Berichte und Backups committet werden, entscheidet Nobu. CSV-, DOCX-, XLSX-Dateien und `index.html` bleiben unberührt (`convert_to_excel.py` liest die DOCX-Dateien, nicht die JSON).
 - **`lastModified` nicht ändern.** Das Feld bedeutet „Inhalt des Eintrags wurde geändert“ und wird erst gesetzt, wenn Nobu eine inhaltliche Korrektur freigibt.
 - **Nichts behaupten, was nicht belegt ist.** Bei inhaltlichen Abweichungen immer die Quell-URL und die gelesene Stelle nennen; was sich nicht prüfen ließ, als „nicht prüfbar“ führen, nicht als „in Ordnung“.
 
@@ -81,6 +82,12 @@ Eine Plan-Datei im Temp-Verzeichnis schreiben:
 - `url_replacements`: alle `redirect_safe`-Fälle aus Schritt 2 (`url` → `proposed_url`). `redirect_endpoint_cosmetic`, `redirect_review` und alles Übrige gehören nicht hinein. Ohne passenden Fall bleibt die Liste leer – das ist ein normales Ergebnis.
 - `sighted`: Einträge ohne offenes Problem, d. h. alle Links in Ordnung (oder soeben automatisch korrigiert) und keine inhaltliche Abweichung gefunden. Einträge mit offenen Punkten erhalten das Datum nicht – sie gelten erst als geprüft, wenn Nobu die Punkte geklärt hat.
 
+Vor dem echten Lauf das Backup anlegen (`-n` überschreibt nichts):
+
+```bash
+mkdir -p backup && cp -n api_list.json backup/api_list_YYYYMM.json
+```
+
 Erst als Trockenlauf, dann echt:
 
 ```bash
@@ -124,18 +131,49 @@ Drei bis fünf Punkte nach Tragweite (Abschaltungen, falsche Endpoints oder Lize
 ## Nicht geprüft
 - <URL / Eintrag>: <Grund>
 
+## Entscheidungsliste (zum Ausfüllen)
+Kurze Anleitung: Hinter jedem **Entscheidung:** `ja` (Vorschlag übernehmen), `nein` (nichts ändern) oder eigenen Text eintragen; leere Punkte bleiben unverändert.
+
+### A. Links
+- **L1 · <Eintrag> · `<Feld>`** – <Befund>. Vorschlag: <…>.
+  **Entscheidung:**
+
+### B. Inhalt (unsicher)
+- **E01 · <Eintrag> · `<Feld>`** – <Befund mit Quelle>. Vorschlag: <kurz>.
+  **Entscheidung:**
+
+### C. Datenauffälligkeiten
+- **D1 · …**
+  **Entscheidung:**
+
+### D. Nicht prüfbar (Nobu schaut selbst nach)
+- **N1 · <Eintrag>** – <was>:
+
 ## Nächste Schritte für Nobu
-1. `git diff api_list.json` ansehen
-2. Entscheidungen oben prüfen; freigegebene Textänderungen einarbeiten lassen (dann auch `lastModified` und `lastSighted` setzen)
-3. Committen und pushen, z. B.: `git add api_list.json && git commit -m "Monatlicher API-Check YYYY-MM" && git push` (der Bericht selbst wird nicht committet)
+1. Entscheidungsliste ausfüllen
+2. Claude bitten, die Entscheidungsliste einzuarbeiten (Schritt 7)
+3. `git diff api_list.json` ansehen, dann committen und pushen, z. B.: `git add api_list.json && git commit -m "Monatlicher API-Check YYYY-MM" && git push`
 4. Falls sich URLs oder Inhalte geändert haben: CSV-, DOCX- und XLSX-Dateien werden nicht aus der JSON erzeugt und müssen bei Bedarf von Hand abgeglichen werden.
 ```
 
-Abschnitte ohne Inhalt mit „–“ füllen statt weglassen, damit man sieht, dass geprüft wurde. Der Ordner `reports/` steht in `.gitignore`: Berichte bleiben lokal und werden weder committet noch über GitHub Pages veröffentlicht.
+Die Entscheidungsliste bündelt alles, was ein Mensch klären muss: „unsichere“ und „nicht prüfbare“ Befunde, „sichere“ Befunde ohne eindeutigen Vorschlag, Links mit Problemen und Datenauffälligkeiten. Jeder Punkt bekommt eine feste Nummer (L, E, D, N, ggf. K für Kosmetik), damit sich Entscheidungen eindeutig zuordnen lassen. „Sichere“ Befunde mit Textvorschlag stehen nur im Abschnitt „Zur Entscheidung (Inhalt)“, nicht in der Liste, solange Nobu sie nicht gesondert freigibt.
+
+Abschnitte ohne Inhalt mit „–“ füllen statt weglassen, damit man sieht, dass geprüft wurde. Der Ordner `reports/` steht nicht in `.gitignore`, damit sich die Berichte teilen lassen. Weil die Website per GitHub Pages aus dem Repository ausgeliefert wird, sind committete Berichte dort auch abrufbar. Das ist laut Nobu in Ordnung, solange nichts Personenbezogenes oder Vertrauliches im Bericht steht; darauf beim Schreiben achten.
 
 ### 6. Abschlussmeldung im Chat
 
-Kurz: Zahlen, Pfad zum Bericht, die zwei oder drei wichtigsten Punkte zur Entscheidung, und der Hinweis, dass noch nichts committet wurde.
+Kurz: Zahlen, Pfad zum Bericht, die zwei oder drei wichtigsten Punkte zur Entscheidung, der Hinweis auf die auszufüllende Entscheidungsliste, und dass noch nichts committet wurde.
+
+### 7. Entscheidungen einarbeiten (eigener Aufruf, nachdem Nobu die Liste ausgefüllt hat)
+
+Auslöser: Nobu bittet darum, die Entscheidungsliste eines Berichts einzuarbeiten.
+
+1. Den Bericht lesen und alle Punkte mit ausgefüllter **Entscheidung:** sammeln. Leere Punkte und `nein` bleiben unverändert. Ist eine Eingabe nicht eindeutig (z. B. „ja“ bei einem Punkt mit mehreren Vorschlägen), nachfragen statt raten.
+2. Backup anlegen (siehe Grundsätze und Schritt 4), `cp -n` ohne Überschreiben.
+3. Änderungen an `api_list.json` ausführen. Texte bei Bedarf auf Deutsch und Englisch im Stil des Eintrags formulieren und die Formulierungen vor dem Schreiben kurz im Chat zeigen, wenn Nobu keinen eigenen Text vorgegeben hat. Immer nur den betroffenen Teil des Felds ändern. Format der Datei erhalten (2 Leerzeichen, UTF-8, Zeilenumbruch am Ende); danach `python3 -c "import json; json.load(open('api_list.json'))"` und `git diff --stat api_list.json`.
+4. Bei jedem geänderten Eintrag `lastModified` auf das heutige Datum setzen. `lastSighted` setzen, wenn der Eintrag nach der Einarbeitung keinen offenen Punkt mehr hat.
+5. Im Bericht jeden erledigten Punkt hinter der Entscheidung mit `→ eingearbeitet (YYYY-MM-DD)` markieren, damit der Bericht den Stand zeigt.
+6. Nichts committen. Kurz melden, was geändert wurde und was offen bleibt.
 
 ## Wenn etwas schiefgeht
 
